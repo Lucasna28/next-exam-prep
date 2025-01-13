@@ -6,32 +6,73 @@ export default function PropsPage() {
       <h1>Props i React</h1>
 
       <p>
-        Props (Properties) er den primære måde at sende data mellem komponenter
-        i React. De er read-only og følger en envejs dataflow fra parent til
-        child komponenter.
+        Props (Properties) er den fundamentale måde at sende data mellem
+        komponenter i React. De fungerer som argumenter til en komponent og
+        følger et envejs dataflow fra parent til child.
       </p>
 
-      <h2>Grundlæggende Props</h2>
+      <h2>Grundlæggende Koncept</h2>
+      <p>
+        Tænk på props som attributter du sender til en komponent, ligesom HTML
+        attributter. De er read-only, hvilket betyder at en child komponent
+        aldrig må ændre sine props.
+      </p>
+
+      <h2>Simpelt Props Eksempel</h2>
       <CodeBlock
         language="typescript"
-        code={`// Parent Component
-function Parent() {
-  return <Child name="John" age={25} isAdmin={true} />;
-}
-
-// Child Component
-interface ChildProps {
+        code={`// Velkomst komponent med props
+interface WelcomeProps {
   name: string;
-  age: number;
-  isAdmin: boolean;
+  greeting?: string; // Optional prop med ?
 }
 
-function Child({ name, age, isAdmin }: ChildProps) {
+function Welcome({ name, greeting = "Hej" }: WelcomeProps) {
+  return <h1>{greeting}, {name}!</h1>;
+}
+
+// Brug af Welcome komponenten
+function App() {
   return (
     <div>
-      <h2>Bruger: {name}</h2>
-      <p>Alder: {age}</p>
-      {isAdmin && <span>Admin Bruger</span>}
+      <Welcome name="Anders" />
+      <Welcome name="Marie" greeting="Goddag" />
+    </div>
+  );
+}`}
+      />
+
+      <h2>Avanceret Props Håndtering</h2>
+      <CodeBlock
+        language="typescript"
+        code={`// Mere kompleks komponent med forskellige prop typer
+interface UserCardProps {
+  user: {
+    name: string;
+    email: string;
+    age: number;
+  };
+  onEdit: (id: string) => void;
+  isAdmin?: boolean;
+  children: React.ReactNode;
+}
+
+function UserCard({ user, onEdit, isAdmin = false, children }: UserCardProps) {
+  return (
+    <div className="card">
+      <h2>{user.name}</h2>
+      <p>Email: {user.email}</p>
+      <p>Alder: {user.age}</p>
+      
+      {isAdmin && (
+        <button onClick={() => onEdit(user.id)}>
+          Rediger
+        </button>
+      )}
+      
+      <div className="content">
+        {children}
+      </div>
     </div>
   );
 }`}
@@ -39,25 +80,33 @@ function Child({ name, age, isAdmin }: ChildProps) {
 
       <h2>Props Best Practices</h2>
       <ul>
-        <li>Brug TypeScript interfaces til at definere prop typer</li>
-        <li>Hold props så simple som muligt</li>
-        <li>Undgå at modificere props direkte</li>
-        <li>Brug default værdier når det giver mening</li>
+        <li>
+          <strong>TypeScript Interfaces:</strong> Definer altid prop typer med
+          TypeScript interfaces for bedre type-sikkerhed og dokumentation
+        </li>
+        <li>
+          <strong>Default Værdier:</strong> Brug default værdier for valgfrie
+          props for at undgå undefined fejl
+        </li>
+        <li>
+          <strong>Destructuring:</strong> Brug destructuring i parameter listen
+          for mere læsbar kode
+        </li>
+        <li>
+          <strong>Props Validering:</strong> Valider props med TypeScript og
+          runtime checks hvor nødvendigt
+        </li>
       </ul>
 
-      <h2>Children Props</h2>
+      <h2>Almindelige Props Mønstre</h2>
+      <h3>1. Children Props</h3>
       <CodeBlock
         language="typescript"
-        code={`// Container Component
-interface ContainerProps {
-  children: React.ReactNode;
-  title: string;
-}
-
-function Container({ children, title }: ContainerProps) {
+        code={`// Container komponent med children
+function Container({ children, title }: { children: React.ReactNode; title: string }) {
   return (
     <div className="container">
-      <h1>{title}</h1>
+      <h2>{title}</h2>
       {children}
     </div>
   );
@@ -66,10 +115,72 @@ function Container({ children, title }: ContainerProps) {
 // Brug af Container
 function App() {
   return (
-    <Container title="Min App">
-      <p>Dette er child content</p>
+    <Container title="Min Sektion">
+      <p>Dette er indholdet</p>
+      <button>Klik Her</button>
     </Container>
   );
+}`}
+      />
+
+      <h3>2. Render Props</h3>
+      <CodeBlock
+        language="typescript"
+        code={`// Render prop mønster
+interface DataRendererProps {
+  render: (data: string) => React.ReactNode;
+}
+
+function DataRenderer({ render }: DataRendererProps) {
+  const data = "Nogle data";
+  return <>{render(data)}</>;
+}
+
+// Brug af render prop
+function App() {
+  return (
+    <DataRenderer 
+      render={(data) => <div>Data: {data}</div>}
+    />
+  );
+}`}
+      />
+
+      <h2>Almindelige Fejl at Undgå</h2>
+      <ul>
+        <li>
+          <strong>Mutation af Props:</strong> Aldrig modificer props direkte i
+          en komponent
+        </li>
+        <li>
+          <strong>Prop Drilling:</strong> Undgå at sende props gennem mange lag
+          af komponenter
+        </li>
+        <li>
+          <strong>Store Prop Objekter:</strong> Del store prop objekter op i
+          mindre, mere specifikke props
+        </li>
+        <li>
+          <strong>Manglende TypeScript:</strong> Altid definer prop typer for
+          bedre vedligeholdelse
+        </li>
+      </ul>
+
+      <h2>Debugging Props</h2>
+      <p>
+        Når du debugger props-relaterede problemer, kan du bruge console.log
+        eller React DevTools til at inspicere props værdier:
+      </p>
+      <CodeBlock
+        language="typescript"
+        code={`function DebuggingComponent(props: any) {
+  console.log('Component props:', props);
+  // eller
+  useEffect(() => {
+    console.log('Props changed:', props);
+  }, [props]);
+
+  return <div>...</div>;
 }`}
       />
     </div>
