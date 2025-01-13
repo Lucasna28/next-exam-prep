@@ -7,7 +7,7 @@ export default function SSGPage() {
 
       <h2 className="text-base">Hvad er Server Side Generation?</h2>
       <p className="text-xs">
-        Server Side Generation (SSG) gør det muligt at generere statiske sider ved build-tidspunktet. Dette betyder, at HTML-filer bliver genereret på serveren, inden de sendes til brugeren. 
+        Server Side Generation (SSG) gøre det muligt at generere statiske sider ved build-tidspunktet. Dette betyder, at HTML-filer bliver genereret på serveren, inden de sendes til brugeren. 
       </p>
       <p className="text-xs">
         SSG bruges til sider, hvor indholdet ikke ændrer sig ofte, og hvor du ønsker hurtigt at servere præ-genereret HTML til brugerne.
