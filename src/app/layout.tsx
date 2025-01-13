@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import PrintButton from "@/components/PrintButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
             <div className="pl-64">
               <main className="max-w-4xl mx-auto px-6 py-12">{children}</main>
             </div>
+            <PrintButton />
           </div>
         </ThemeProvider>
       </body>
