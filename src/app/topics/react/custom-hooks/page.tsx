@@ -7,7 +7,7 @@ export default function CustomHooksPage() {
 
       <p>
         Custom hooks er funktioner der genbruger logik mellem komponenter. De
-        starter altid med "use" og kan bruge andre hooks.
+        starter altid med &quot;use&quot; og kan bruge andre hooks.
       </p>
 
       <h2>Eksempel på Custom Hook</h2>
@@ -42,7 +42,7 @@ export default function CustomHooksPage() {
       <CodeBlock
         language="typescript"
         code={`function App() {
-  const [name, setName] = useLocalStorage('name', 'John');
+  const [name, setName] = useLocalStorage(&quot;name&quot;, &quot;John&quot;);
 
   return (
     <input
@@ -55,7 +55,7 @@ export default function CustomHooksPage() {
 
       <h3>Best Practices</h3>
       <ul>
-        <li>Start altid med "use" prefix</li>
+        <li>Start altid med use prefix</li>
         <li>Hold hooks simple og fokuserede</li>
         <li>Brug TypeScript for type safety</li>
         <li>Dokumentér input og output</li>
