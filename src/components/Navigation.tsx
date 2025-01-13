@@ -7,16 +7,19 @@ const Navigation = () => {
     {
       section: "Next.js Grundlæggende",
       items: [
-        { title: "Dynamic Routing", path: "/topics/dynamic-routing" },
-        { title: "Static Site Generation (SSG)", path: "/topics/ssg" },
-        { title: "Incremental Static Regeneration", path: "/topics/isr" },
+        { title: "Dynamic Routing", path: "/topics/next/dynamic-routing" },
+        { title: "Static Site Generation (SSG)", path: "/topics/next/ssg" },
+        { title: "Incremental Static Regeneration", path: "/topics/next/isr" },
         {
           title: "Server vs Client Components",
-          path: "/topics/server-client-components",
+          path: "/topics/next/server-client-components",
         },
-        { title: "API Routes", path: "/topics/api-routes" },
-        { title: "Middleware", path: "/topics/middleware" },
-        { title: "Image Optimization", path: "/topics/image-optimization" },
+        { title: "API Routes", path: "/topics/next/api-routes" },
+        { title: "Middleware", path: "/topics/next/middleware" },
+        {
+          title: "Image Optimization",
+          path: "/topics/next/image-optimization",
+        },
       ],
     },
     {
