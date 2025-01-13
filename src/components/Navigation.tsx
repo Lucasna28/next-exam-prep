@@ -35,16 +35,17 @@ const Navigation = () => {
     {
       section: "React Koncepter",
       items: [
-        { title: "Props & State", path: "/topics/props-state" },
+        { title: "Props", path: "/topics/react/props" },
+        { title: "State", path: "/topics/react/state" },
         {
           title: "Controlled Components",
-          path: "/topics/controlled-components",
+          path: "/topics/react/controlled-components",
         },
-        { title: "Custom Hooks", path: "/topics/custom-hooks" },
-        { title: "Context API", path: "/topics/context-api" },
-        { title: "Portals", path: "/topics/portals" },
-        { title: "State Management", path: "/topics/state-management" },
-        { title: "Performance Optimering", path: "/topics/react-performance" },
+        { title: "Custom Hooks", path: "/topics/react/custom-hooks" },
+        { title: "Context API", path: "/topics/react/context-api" },
+        { title: "Portals", path: "/topics/react/portals" },
+        { title: "State Management", path: "/topics/react/state-management" },
+        { title: "Performance Optimering", path: "/topics/react/performance" },
       ],
     },
     {
