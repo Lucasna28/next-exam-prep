@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 .prose {
-  @apply max-w-none
-         text-slate-700 dark:text-slate-300;
+  @apply max-w-none text-slate-700 dark:text-slate-300;
 }
 
 .prose h1 {
@@ -15,6 +14,9 @@
   @apply text-slate-900 dark:text-white mt-12 mb-4;
 }
 
+.prose h5 {
+  @apply text-slate-900 dark:text-white mt-12 mb-4;
+}
 .prose p {
   @apply mb-4;
 }
@@ -29,8 +31,7 @@
 
 @media print {
   /* Skjul navigation og andre UI elementer ved print */
-  aside,
-  button {
+  aside, button, nav {
     display: none !important;
   }
 
@@ -45,15 +46,55 @@
     padding-left: 0 !important;
   }
 
-  /* Ensure dark mode doesn't affect print */
-  * {
-    /* color: black !important; */
-    background: none !important;
+  /* Skaler tekst til print */
+  .prose {
+    font-size: 10pt; /* Mindre tekst for bedre udnyttelse af plads */
   }
 
-  /* Ensure code blocks are readable */
+  /* Skjul farver i print (for at undgå problemer med mørk tilstand) */
+  * {
+    background: none !important;
+    /* color: black !important; */
+  }
+
+  /* Sørg for at kodeblokke bliver læselige */
   pre {
     border: 1px solid #ddd !important;
     white-space: pre-wrap !important;
+    page-break-inside: avoid;
+  }
+
+  /* Skab sektioner, der ikke deles mellem sider */
+  .section {
+    page-break-after: always; /* Tvinger en ny side efter hver sektion */
+  }
+
+  /* Forhindrer opdeling af store blokke som lister */
+  ul, ol, p, h2 {
+    page-break-inside: avoid;
+  }
+
+  /* Skift page-break på store overskrifter */
+  h1, h2 {
+    page-break-before: avoid; /* Tvinger en ny side før store overskrifter */
+  }
+  /* Skift page-break på store overskrifter */
+  h5 {
+    page-break-before: always; /* Tvinger en ny side før store overskrifter */
+  }
+  /* Forhindrer billeder i at blive delt */
+  img {
+    page-break-inside: avoid;
+  }
+
+  /* Skru ned for marginerne for at få plads til alt på én side */
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Skru ned for indrykning på listepunkter */
+  li {
+    margin-left: 10px;
   }
 }

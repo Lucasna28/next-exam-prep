@@ -7,29 +7,29 @@ const Navigation = () => {
     {
       section: "Next.js Grundlæggende",
       items: [
-        { title: "Dynamic Routing", path: "/topics/next/dynamic-routing" },
-        { title: "Static Site Generation (SSG)", path: "/topics/next/ssg" },
-        { title: "Incremental Static Regeneration", path: "/topics/next/isr" },
+        { title: "Dynamic Routing", path: "/topics/next/general/dynamic-routing" },
+        { title: "Static Site Generation (SSG)", path: "/topics/next/general/ssg" },
+        { title: "Incremental Static Regeneration", path: "/topics/next/general/isr" },
         {
           title: "Server vs Client Components",
-          path: "/topics/next/server-client-components",
+          path: "/topics/next/general/server-client-components",
         },
-        { title: "API Routes", path: "/topics/next/api-routes" },
-        { title: "Middleware", path: "/topics/next/middleware" },
+        { title: "API Routes", path: "/topics/next/general/api-routes" },
+        { title: "Middleware", path: "/topics/next/general/middleware" },
         {
           title: "Image Optimization",
-          path: "/topics/next/image-optimization",
+          path: "/topics/next/general/image-optimization",
         },
       ],
     },
     {
       section: "Next.js Avanceret",
       items: [
-        { title: "next.config.js", path: "/topics/next-config" },
-        { title: "Data Fetching", path: "/topics/data-fetching" },
-        { title: "Link & Head Components", path: "/topics/link-head" },
-        { title: "App vs Pages Router", path: "/topics/routing-comparison" },
-        { title: "Rendering Strategier", path: "/topics/rendering-strategies" },
+        { title: "next.config.js", path: "/topics/next/advanced/next-config" },
+        { title: "Data Fetching", path: "/topics/next/advanced/data-fetching" },
+        { title: "Link & Head Components", path: "/topics/next/advanced/link-head" },
+        { title: "App vs Pages Router", path: "/topics/next/advanced/routing-comparison" },
+        { title: "Rendering Strategier", path: "/topics/next/advanced/rendering-strategies" },
       ],
     },
     {
