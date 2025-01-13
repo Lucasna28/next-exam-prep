@@ -17,9 +17,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="da">
-      <body className={inter.className}>
+      <body className={inter.className + " bg-slate-950 text-slate-50"}>
         <Navigation />
-        <main className="container mx-auto px-4 py-8">{children}</main>
+        <div className="pl-64">
+          <main className="max-w-4xl mx-auto px-6 py-12">{children}</main>
+        </div>
       </body>
     </html>
   );
