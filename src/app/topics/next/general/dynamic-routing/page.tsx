@@ -7,7 +7,7 @@ export default function DynamicRoutingPage() {
 
       <h2 className="text-base">Hvad er Dynamic Routing?</h2>
       <p className="text-xs">
-        Dynamic Routing gør det muligt at oprette sider med dynamiske URL’er, der indeholder variable værdier. Det bruges til f.eks. blogindlæg, produktsider og brugerprofiler.
+        Dynamic Routing gør det muligt at oprette sider med dynamiske URLer, der indeholder variable værdier. Det bruges til f.eks. blogindlæg, produktsider og brugerprofiler.
       </p>
 
       <h2 className="text-base">Eksempel: Blogindlæg</h2>
@@ -28,13 +28,13 @@ export default function Post({ params }) {
 
       <h3 className="text-sm">Hvordan fungerer det?</h3>
       <ul className="text-xs">
-        <li><strong>Filnavn:</strong> `[slug].tsx` håndterer dynamiske URL’er.</li>
-        <li><strong>params.slug:</strong> URL’en `/posts/min-første-post` sætter `params.slug` til `min-første-post`.</li>
+        <li><strong>Filnavn:</strong> `[slug].tsx` håndterer dynamiske URLer.</li>
+        <li><strong>params.slug:</strong> URLen `/posts/min-første-post` sætter `params.slug` til `min-første-post`.</li>
       </ul>
 
       <h2 className="text-base">Eksempel: Produktsider</h2>
       <p className="text-xs">
-        Brug `pages/products/[id].tsx` til at håndtere produktsider med ID’er.
+        Brug `pages/products/[id].tsx` til at håndtere produktsider med IDer.
       </p>
 
       <CodeBlock
