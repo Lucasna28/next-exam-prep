@@ -47,7 +47,7 @@
 
   /* Ensure dark mode doesn't affect print */
   * {
-    color: black !important;
+    /* color: black !important; */
     background: none !important;
   }
 
