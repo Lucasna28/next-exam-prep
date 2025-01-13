@@ -12,7 +12,7 @@ export default function ISRPage() {
 
       <h2 className="text-base">Eksempel: Blogindlæg med ISR</h2>
       <p className="text-xs">
-        Brug `getStaticProps` med `revalidate` for at opdatere dine sider periodisk, uden at rebuild'e hele appen. Her er et eksempel på, hvordan du kan hente blogindlæg og bruge ISR:
+        Brug `getStaticProps` med `revalidate` for at opdatere dine sider periodisk, uden at rebuilde hele appen. Her er et eksempel på, hvordan du kan hente blogindlæg og bruge ISR:
       </p>
 
       <CodeBlock
@@ -70,7 +70,7 @@ export default function Product({ product }) {
 
       <h2 className="text-base">Konklusion</h2>
       <p className="text-xs">
-        Incremental Static Regeneration giver dig mulighed for at holde statisk genererede sider opdaterede uden at skulle rebuild'e hele appen. Det er især nyttigt til sider, der opdateres ofte, såsom blogindlæg eller produktsider, og giver en god balance mellem ydeevne og opdatering af indhold.
+        Incremental Static Regeneration giver dig mulighed for at holde statisk genererede sider opdaterede uden at skulle rebuilde hele appen. Det er især nyttigt til sider, der opdateres ofte, såsom blogindlæg eller produktsider, og giver en god balance mellem ydeevne og opdatering af indhold.
       </p>
     </div>
   );
