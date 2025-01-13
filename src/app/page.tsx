@@ -8,24 +8,47 @@ const categories = [
     description: "Server-side rendering, routing, og moderne web udvikling",
     icon: "🚀",
     color: "from-blue-500 to-cyan-500",
+    links: [
+      { title: "Dynamic Routing", path: "/topics/next/dynamic-routing" },
+      { title: "Static Site Generation", path: "/topics/next/ssg" },
+      {
+        title: "Server Components",
+        path: "/topics/next/server-client-components",
+      },
+    ],
   },
   {
     title: "React",
     description: "Komponenter, hooks, og state management",
     icon: "⚛️",
     color: "from-cyan-500 to-teal-500",
+    links: [
+      { title: "Props & State", path: "/topics/props-state" },
+      { title: "Custom Hooks", path: "/topics/custom-hooks" },
+      { title: "Context API", path: "/topics/context-api" },
+    ],
   },
   {
     title: "TypeScript",
     description: "Type-sikker JavaScript udvikling",
     icon: "📘",
     color: "from-teal-500 to-green-500",
+    links: [
+      { title: "Types vs Interfaces", path: "/topics/types-interfaces" },
+      { title: "Generics", path: "/topics/generics" },
+      { title: "Advanced Types", path: "/topics/advanced-types" },
+    ],
   },
   {
     title: "JavaScript",
     description: "Moderne JavaScript features og koncepter",
     icon: "💫",
     color: "from-green-500 to-yellow-500",
+    links: [
+      { title: "Async Programming", path: "/topics/async-programming" },
+      { title: "Modern Features", path: "/topics/modern-js" },
+      { title: "Core Concepts", path: "/topics/js-core-concepts" },
+    ],
   },
 ];
 
@@ -82,9 +105,25 @@ export default function Home() {
               <span className="text-3xl">{category.icon}</span>
               <h2 className="text-xl font-semibold">{category.title}</h2>
             </div>
-            <p className="text-slate-600 dark:text-slate-400">
+            <p className="text-slate-600 dark:text-slate-400 mb-4">
               {category.description}
             </p>
+            <div className="space-y-2">
+              {category.links.map((link) => (
+                <Link
+                  key={link.path}
+                  href={link.path}
+                  className="block py-2 px-3 rounded-md text-sm
+                           bg-slate-50 dark:bg-slate-700/50
+                           hover:bg-slate-100 dark:hover:bg-slate-700
+                           text-slate-700 dark:text-slate-300
+                           transition-colors duration-200"
+                >
+                  {link.title}
+                  <span className="float-right text-slate-400">→</span>
+                </Link>
+              ))}
+            </div>
             <div
               className={`absolute inset-0 bg-gradient-to-r ${category.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
             />
@@ -118,21 +157,6 @@ export default function Home() {
             </motion.div>
           ))}
         </div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6 }}
-        className="text-center"
-      >
-        <Link
-          href="/topics/dynamic-routing"
-          className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200"
-        >
-          Start med Dynamic Routing
-          <span className="text-xl">→</span>
-        </Link>
       </motion.div>
     </div>
   );
