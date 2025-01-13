@@ -34,11 +34,20 @@ const Navigation = () => {
     {
       section: "Next.js Avanceret",
       items: [
-        { title: "next.config.js", path: "/topics/next-config" },
-        { title: "Data Fetching", path: "/topics/data-fetching" },
-        { title: "Link & Head Components", path: "/topics/link-head" },
-        { title: "App vs Pages Router", path: "/topics/routing-comparison" },
-        { title: "Rendering Strategier", path: "/topics/rendering-strategies" },
+        { title: "next.config.js", path: "/topics/next/advanced/next-config" },
+        { title: "Data Fetching", path: "/topics/next/advanced/data-fetching" },
+        {
+          title: "Link & Head Components",
+          path: "/topics/next/advanced/link-head",
+        },
+        {
+          title: "App vs Pages Router",
+          path: "/topics/next/advanced/routing-comparison",
+        },
+        {
+          title: "Rendering Strategier",
+          path: "/topics/next/advanced/rendering-strategies",
+        },
       ],
     },
     {
