@@ -2,30 +2,28 @@ import CodeBlock from "@/components/CodeBlock";
 
 export default function CustomHooksPage() {
   return (
-    <div className="prose lg:prose-xl">
-      <h1>Custom Hooks i React</h1>
-
-      <p>
-        Custom hooks er funktioner der genbruger logik mellem komponenter. De
-        starter altid med &quot;use&quot; og kan bruge andre hooks.
+    <div className="prose lg:prose-xs">
+      <h1 className="text-lg">Custom Hooks i React</h1>
+      <p className="text-xs">
+        Custom Hooks i React giver dig mulighed for at oprette dine egne funktioner, der kan genbruge logik på tværs af komponenter. Custom hooks starter altid med `use` og kan bruge andre hooks som `useState`, `useEffect` osv.
       </p>
 
-      <h2>Eksempel på Custom Hook</h2>
+      <h2 className="text-base">Eksempel: Oprettelse af en Custom Hook</h2>
       <CodeBlock
-        language="typescript"
-        code={`function useLocalStorage<T>(key: string, initialValue: T) {
-  // State til at holde vores værdi
-  const [storedValue, setStoredValue] = useState<T>(() => {
+        code={`import { useState } from 'react';
+
+function useLocalStorage(key, initialValue) {
+  const [storedValue, setStoredValue] = useState(() => {
     try {
       const item = window.localStorage.getItem(key);
       return item ? JSON.parse(item) : initialValue;
     } catch (error) {
+      console.log(error);
       return initialValue;
     }
   });
 
-  // Funktion til at gemme både i state og localStorage
-  const setValue = (value: T) => {
+  const setValue = (value) => {
     try {
       setStoredValue(value);
       window.localStorage.setItem(key, JSON.stringify(value));
@@ -34,32 +32,59 @@ export default function CustomHooksPage() {
     }
   };
 
-  return [storedValue, setValue] as const;
-}`}
+  return [storedValue, setValue];
+}
+
+export default useLocalStorage;`}
+        language="javascript"
       />
 
-      <h2>Brug af Custom Hook</h2>
+      <h5 className="text-base">Hvordan fungerer Custom Hooks?</h5>
+      <p className="text-xs">
+        En custom hook er en funktion, der kan indeholde logik, som kan deles på tværs af flere komponenter. Custom hooks bruges typisk til at håndtere sideeffekter, tilstand eller formularindgange, som kan genbruges i forskellige dele af applikationen.
+      </p>
+
+      <h2 className="text-base">Fordele ved Custom Hooks</h2>
+      <ul className="text-xs">
+        <li><strong>Genbrug af logik:</strong> Del funktionalitet mellem komponenter uden at duplikere kode.</li>
+        <li><strong>Modularitet:</strong> Hold komponenter små og fokuserede på deres primære opgave.</li>
+        <li><strong>Forbedret læsbarhed:</strong> Ved at abstrahere logik i hooks bliver komponenterne lettere at læse og vedligeholde.</li>
+      </ul>
+
+      <h2 className="text-base">Eksempel: Brug af Custom Hook i en Komponent</h2>
+      <p className="text-xs">
+        Her er et eksempel på, hvordan vi kan bruge den `useLocalStorage` hook, vi har oprettet:
+      </p>
+
       <CodeBlock
-        language="typescript"
-        code={`function App() {
-  const [name, setName] = useLocalStorage(&quot;name&quot;, &quot;John&quot;);
+        code={`import useLocalStorage from './useLocalStorage';
+
+export default function ExampleComponent() {
+  const [name, setName] = useLocalStorage('name', 'John Doe');
+
+  const handleChange = (event) => {
+    setName(event.target.value);
+  };
 
   return (
-    <input
-      value={name}
-      onChange={e => setName(e.target.value)}
-    />
+    <div>
+      <input
+        type="text"
+        value={name}
+        onChange={handleChange}
+        placeholder="Indtast dit navn"
+      />
+      <p>Dit navn er: {name}</p>
+    </div>
   );
 }`}
+        language="javascript"
       />
 
-      <h3>Best Practices</h3>
-      <ul>
-        <li>Start altid med use prefix</li>
-        <li>Hold hooks simple og fokuserede</li>
-        <li>Brug TypeScript for type safety</li>
-        <li>Dokumentér input og output</li>
-      </ul>
+      <h2 className="text-base">Konklusion</h2>
+      <p className="text-xs">
+        Custom Hooks giver dig mulighed for at udtrække og genbruge logik i React-applikationer på en struktureret måde. De hjælper med at holde dine komponenter rene og nemmere at vedligeholde, samtidig med at de gør koden mere fleksibel og genanvendelig.
+      </p>
     </div>
   );
 }

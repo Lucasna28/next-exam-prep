@@ -2,71 +2,50 @@ import CodeBlock from "@/components/CodeBlock";
 
 export default function PortalsPage() {
   return (
-    <div className="prose lg:prose-xl">
-      <h1>React Portals</h1>
-
-      <p>
-        Portals lader dig rendere children elementer i en DOM node uden for det
-        normale komponent hierarki. Dette er særligt nyttigt for modals,
-        tooltips og dropdowns.
+    <div className="prose lg:prose-xs">
+      <h1 className="text-lg">Portals i React</h1>
+      <p className="text-xs">
+        Portals i React bruges til at rendre børn udenfor deres forældrekomponent i DOM’en. Det kan være nyttigt til modale vinduer, tooltips eller pop-ups, hvor du vil undgå at bryde den eksisterende komponentstruktur.
       </p>
 
-      <h2>Modal med Portal</h2>
+      <h2 className="text-base">Eksempel: Oprettelse af en Portal</h2>
       <CodeBlock
-        language="typescript"
-        code={`import { createPortal } from 'react-dom';
+        code={`import ReactDOM from 'react-dom';
+import { useState } from 'react';
 
-interface ModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  children: React.ReactNode;
-}
-
-function Modal({ isOpen, onClose, children }: ModalProps) {
-  if (!isOpen) return null;
-
-  return createPortal(
-    <div className="modal-overlay">
-      <div className="modal">
-        {children}
-        <button onClick={onClose}>Luk</button>
-      </div>
-    </div>,
-    document.body
-  );
-}`}
-      />
-
-      <h2>Brug af Modal</h2>
-      <CodeBlock
-        language="typescript"
-        code={`function App() {
+export default function Modal() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
 
   return (
     <div>
-      <button onClick={() => setIsOpen(true)}>
-        Åbn Modal
-      </button>
-
-      <Modal 
-        isOpen={isOpen} 
-        onClose={() => setIsOpen(false)}
-      >
-        <h2>Modal Indhold</h2>
-        <p>Dette renderes udenfor komponent hierarkiet</p>
-      </Modal>
+      <button onClick={openModal}>Åbn Modal</button>
+      {isOpen &&
+        ReactDOM.createPortal(
+          <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: 'white', padding: '20px' }}>
+            <p>Dette er en Modal!</p>
+            <button onClick={closeModal}>Luk Modal</button>
+          </div>,
+          document.getElementById('modal-root') // Target DOM node
+        )}
     </div>
   );
 }`}
+        language="javascript"
       />
 
-      <h2>Hvornår bruges Portals?</h2>
-      <ul>
-        <li>Modals og dialogs</li>
-        <li>Tooltips</li>
-        <li>Floating menus</li>
-        <li>Når z-index og styling er problematisk</li>
+      <h2 className="text-base">Hvordan fungerer Portals?</h2>
+      <p className="text-xs">
+        Portals gør det muligt at rendere et element til et DOM-niveau udenfor det normale komponenttræ. Det er især nyttigt i tilfælde, hvor du skal bryde ud af komponenthierarkiet, som f.eks. ved rendering af modaler, popups og overlays.
+      </p>
+
+      <h2 className="text-base">Fordele ved Portals</h2>
+      <ul className="text-xs">
+        <li><strong>Modularitet:</strong> Separér visningen af visse komponenter uden at påvirke deres forældrekomponenter.</li>
+        <li><strong>Kontrol:</strong> Giver større kontrol over rendering på et specifikt DOM-niveau.</li>
+        <li><strong>Brugervenlighed:</strong> Bruges til at håndtere overlappende UI-elementer, som modale vinduer.</li>
       </ul>
     </div>
   );
