@@ -1,4 +1,5 @@
 import CodeBlock from "@/components/CodeBlock";
+import Link from "next/link";
 
 export default function StatePage() {
   return (
@@ -91,17 +92,52 @@ export default function StatePage() {
 
       <div className="mt-6 text-xs">
         <p>For mere detaljeret information om state, se undersiderne:</p>
-        <ul>
-          <li>
-            <strong>useState Hook</strong> - Grundlæggende state håndtering
-          </li>
-          <li>
-            <strong>State Updates</strong> - Korrekt opdatering af state
-          </li>
-          <li>
-            <strong>Complex State</strong> - Håndtering af kompleks state
-          </li>
-        </ul>
+        <div className="space-y-2 mt-2">
+          <Link
+            href="/topics/react/state/usestate"
+            className="block p-3 rounded-lg border border-slate-200 dark:border-slate-700
+                     hover:bg-slate-50 dark:hover:bg-slate-800/50
+                     transition-colors duration-200"
+          >
+            <strong className="text-indigo-600 dark:text-indigo-400">
+              useState Hook
+            </strong>
+            <p className="mt-1 text-slate-600 dark:text-slate-400">
+              Grundlæggende state håndtering med useState hook, forskellige
+              typer state, og best practices.
+            </p>
+          </Link>
+
+          <Link
+            href="/topics/react/state/updates"
+            className="block p-3 rounded-lg border border-slate-200 dark:border-slate-700
+                     hover:bg-slate-50 dark:hover:bg-slate-800/50
+                     transition-colors duration-200"
+          >
+            <strong className="text-indigo-600 dark:text-indigo-400">
+              State Updates
+            </strong>
+            <p className="mt-1 text-slate-600 dark:text-slate-400">
+              Lær om korrekt opdatering af state, batching, og hvordan man
+              håndterer asynkrone opdateringer.
+            </p>
+          </Link>
+
+          <Link
+            href="/topics/react/state/complex"
+            className="block p-3 rounded-lg border border-slate-200 dark:border-slate-700
+                     hover:bg-slate-50 dark:hover:bg-slate-800/50
+                     transition-colors duration-200"
+          >
+            <strong className="text-indigo-600 dark:text-indigo-400">
+              Complex State
+            </strong>
+            <p className="mt-1 text-slate-600 dark:text-slate-400">
+              Håndtering af kompleks state med objekter og arrays, nested state,
+              og immutability.
+            </p>
+          </Link>
+        </div>
       </div>
     </div>
   );
