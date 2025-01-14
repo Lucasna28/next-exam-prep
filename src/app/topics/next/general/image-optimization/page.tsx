@@ -58,8 +58,8 @@ export default function HomePage() {
       <h5 className="text-base">Eksempel: Responsivt billede</h5>
       <p className="text-xs">
         Next.js gør det nemt at håndtere responsive billeder ved at bruge
-        egenskaben <code>layout="responsive"</code>. Dette tilpasser billedets
-        størrelse dynamisk baseret på containerens bredde.
+        egenskaben <code>layout=&quot;responsive&quot;</code>. Dette tilpasser
+        billedets størrelse dynamisk baseret på containerens bredde.
       </p>
 
       <CodeBlock

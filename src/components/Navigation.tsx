@@ -205,7 +205,7 @@ const Navigation = () => {
       >
         {searchQuery && filteredTopics.length === 0 ? (
           <p className="text-sm text-slate-500 dark:text-slate-400 p-2">
-            Ingen resultater fundet for "{searchQuery}"
+            Ingen resultater fundet for &quot;{searchQuery}&quot;
           </p>
         ) : (
           filteredTopics.map((section) => (
