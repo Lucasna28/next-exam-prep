@@ -17,15 +17,29 @@ interface DropdownProps {
 }
 
 const Dropdown = ({ section, items, isSearching }: DropdownProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [expandedItems, setExpandedItems] = useState<string[]>([]);
   const pathname = usePathname();
+  const [openState, setOpenState] = useState(() => {
+    // Check om denne sektion indeholder den aktive side
+    const hasActivePage = items.some(
+      (item) =>
+        item.path === pathname ||
+        item.subItems?.some((sub) => sub.path === pathname)
+    );
+    return hasActivePage;
+  });
 
-  // Åbn dropdown når der søges
+  const [expandedItems, setExpandedItems] = useState<string[]>(() => {
+    // Find og åbn parent hvis det er en underside
+    const activeParent = items.find((item) =>
+      item.subItems?.some((subItem) => subItem.path === pathname)
+    );
+    return activeParent ? [activeParent.path] : [];
+  });
+
+  // Håndter søgning
   useEffect(() => {
     if (isSearching) {
-      setIsOpen(true);
-      // Åbn alle items der har match
+      setOpenState(true);
       const matchingPaths = items
         .filter((item) =>
           item.subItems?.some((subItem) =>
@@ -35,14 +49,11 @@ const Dropdown = ({ section, items, isSearching }: DropdownProps) => {
           )
         )
         .map((item) => item.path);
-      setExpandedItems(matchingPaths);
-    } else {
-      setIsOpen(false);
-      setExpandedItems([]);
+      setExpandedItems((prev) => [...new Set([...prev, ...matchingPaths])]);
     }
   }, [isSearching, items]);
 
-  // Toggle et specifikt item
+  // Toggle et specifikt item uden at påvirke dropdown state
   const toggleItem = (path: string) => {
     setExpandedItems((prev) =>
       prev.includes(path) ? prev.filter((p) => p !== path) : [...prev, path]
@@ -52,7 +63,7 @@ const Dropdown = ({ section, items, isSearching }: DropdownProps) => {
   return (
     <div className="relative mb-4 rounded-xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm">
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setOpenState((prev) => !prev)}
         className="w-full flex items-center gap-3 p-3
                  text-sm font-medium
                  rounded-xl
@@ -64,7 +75,7 @@ const Dropdown = ({ section, items, isSearching }: DropdownProps) => {
           <span
             className={`h-2 w-2 rounded-full transition-colors duration-200
                      ${
-                       isOpen
+                       openState
                          ? "bg-indigo-500 dark:bg-indigo-400 scale-110"
                          : "bg-slate-300 dark:bg-slate-600"
                      }`}
@@ -75,7 +86,7 @@ const Dropdown = ({ section, items, isSearching }: DropdownProps) => {
           className={`w-5 h-5 transition-transform duration-300 ease-spring
                    text-slate-400 dark:text-slate-500
                    group-hover:text-slate-600 dark:group-hover:text-slate-300
-                   ${isOpen ? "rotate-180" : ""}`}
+                   ${openState ? "rotate-180" : ""}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -92,7 +103,9 @@ const Dropdown = ({ section, items, isSearching }: DropdownProps) => {
       <div
         className={`overflow-hidden transition-all duration-300 ease-spring
                    ${
-                     isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+                     openState
+                       ? "max-h-[1000px] opacity-100"
+                       : "max-h-0 opacity-0"
                    }`}
       >
         <div className="p-2 space-y-0.5">
@@ -130,6 +143,7 @@ const Dropdown = ({ section, items, isSearching }: DropdownProps) => {
                       <button
                         onClick={(e) => {
                           e.preventDefault();
+                          e.stopPropagation();
                           toggleItem(item.path);
                         }}
                         className={`p-1 rounded-md
