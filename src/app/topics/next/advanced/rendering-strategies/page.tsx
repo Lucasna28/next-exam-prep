@@ -16,9 +16,9 @@ export default function RenderingStrategiesPage() {
 
       <h2 className="text-base">Server-Side Rendering (SSR)</h2>
       <p className="text-xs">
-        Med SSR genereres HTML'en for en side på serveren ved hver anmodning.
-        Dette sikrer, at data altid er opdateret, men det kan føre til længere
-        load-tider.
+        Med SSR genereres HTML&apos;en for en side på serveren ved hver
+        anmodning. Dette sikrer, at data altid er opdateret, men det kan føre
+        til længere load-tider.
       </p>
       <CodeBlock
         code={`export async function getServerSideProps(context) {
