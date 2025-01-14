@@ -77,6 +77,16 @@ const Navigation = () => {
         {
           title: "App vs Pages Router",
           path: "/topics/next/advanced/routing-comparison",
+          subItems: [
+            {
+              title: "App Router",
+              path: "/topics/next/advanced/routing-comparison/approuter",
+            },
+            {
+              title: "Pages Router",
+              path: "/topics/next/advanced/routing-comparison/pagesrouter",
+            },
+          ],
         },
         {
           title: "Rendering Strategier",
@@ -87,17 +97,74 @@ const Navigation = () => {
     {
       section: "React Koncepter",
       items: [
-        { title: "Props", path: "/topics/react/props" },
-        { title: "State", path: "/topics/react/state" },
+        {
+          title: "Context API",
+          path: "/topics/react/context",
+        },
         {
           title: "Controlled Components",
-          path: "/topics/react/controlled-components",
+          path: "/topics/react/controlled-uncontrolled",
+          subItems: [
+            {
+              title: "Controlled Components",
+              path: "/topics/react/controlled-uncontrolled/controlled",
+            },
+            {
+              title: "Uncontrolled Components",
+              path: "/topics/react/controlled-uncontrolled/uncontrolled",
+            },
+          ],
         },
-        { title: "Custom Hooks", path: "/topics/react/custom-hooks" },
-        { title: "Context API", path: "/topics/react/context-api" },
-        { title: "Portals", path: "/topics/react/portals" },
-        { title: "State Management", path: "/topics/react/state-management" },
-        { title: "Performance Optimering", path: "/topics/react/performance" },
+        {
+          title: "Custom Hooks",
+          path: "/topics/react/custom-hooks",
+        },
+        {
+          title: "Portals",
+          path: "/topics/react/portals",
+        },
+        {
+          title: "Props",
+          path: "/topics/react/props",
+        },
+        {
+          title: "Prop Drilling",
+          path: "/topics/react/prop-drilling",
+        },
+        {
+          title: "React.lazy & Suspense",
+          path: "/topics/react/react-lazy-suspense",
+        },
+        {
+          title: "React.memo",
+          path: "/topics/react/react-memo",
+        },
+        {
+          title: "State",
+          path: "/topics/react/state",
+          subItems: [
+            {
+              title: "useState Hook",
+              path: "/topics/react/state/usestate",
+            },
+            {
+              title: "State Updates",
+              path: "/topics/react/state/updates",
+            },
+            {
+              title: "Complex State",
+              path: "/topics/react/state/complex",
+            },
+          ],
+        },
+        {
+          title: "State Management",
+          path: "/topics/react/state-management-libraries",
+        },
+        {
+          title: "State Lifting",
+          path: "/topics/react/statelifting",
+        },
       ],
     },
     {
