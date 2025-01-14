@@ -38,11 +38,50 @@ const Navigation = () => {
     {
       section: "Next.js Avanceret",
       items: [
-        { title: "next.config.js", path: "/topics/next/advanced/next-config" },
-        { title: "Data Fetching", path: "/topics/next/advanced/data-fetching" },
-        { title: "Link & Head Components", path: "/topics/next/advanced/link-head" },
-        { title: "App vs Pages Router", path: "/topics/next/advanced/routing-comparison" },
-        { title: "Rendering Strategier", path: "/topics/next/advanced/rendering-strategies" },
+        {
+          title: "next.config.js",
+          path: "/topics/next/advanced/next-config",
+        },
+        {
+          title: "Data Fetching",
+          path: "/topics/next/advanced/data-fetching",
+          subItems: [
+            {
+              title: "getStaticProps",
+              path: "/topics/next/advanced/data-fetching/staticprops",
+            },
+            {
+              title: "getStaticPaths",
+              path: "/topics/next/advanced/data-fetching/staticpaths",
+            },
+            {
+              title: "getServerSideProps",
+              path: "/topics/next/advanced/data-fetching/serversideprops",
+            },
+          ],
+        },
+        {
+          title: "Link & Head Components",
+          path: "/topics/next/advanced/link-head",
+          subItems: [
+            {
+              title: "Link Component",
+              path: "/topics/next/advanced/link-head/linkcomponent",
+            },
+            {
+              title: "Head Component",
+              path: "/topics/next/advanced/link-head/headcomponent",
+            },
+          ],
+        },
+        {
+          title: "App vs Pages Router",
+          path: "/topics/next/advanced/routing-comparison",
+        },
+        {
+          title: "Rendering Strategier",
+          path: "/topics/next/advanced/rendering-strategies",
+        },
       ],
     },
     {
