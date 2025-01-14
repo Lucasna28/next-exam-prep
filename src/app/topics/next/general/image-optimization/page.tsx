@@ -2,75 +2,113 @@ import CodeBlock from "@/components/CodeBlock";
 
 export default function ImageOptimizationPage() {
   return (
-    <div className="prose lg:prose-xl">
-      <h1>Image Optimization i Next.js</h1>
+    <div className="prose lg:prose-xs">
+      <h1 className="text-lg">Image Optimization i Next.js</h1>
 
-      <p>
-        Next.js tilbyder automatisk billedoptimering gennem Image komponenten.
-        Dette inkluderer automatisk størrelsestilpasning, moderne formater og
-        lazy loading.
+      <h2 className="text-base">Hvad er Image Optimization?</h2>
+      <p className="text-xs">
+        Image Optimization i Next.js hjælper med automatisk at optimere billeder
+        for bedre performance. Ved at bruge komponenten <code>next/image</code>,
+        kan du levere billeder i moderne formater som WebP, håndtere responsiv
+        skalering, og udnytte lazy loading.
       </p>
 
-      <h2>Brug af Next.js Image Komponent</h2>
-      <CodeBlock
-        language="typescript"
-        code={`import Image from 'next/image'
+      <h2 className="text-base">
+        Eksempel: Brug af <code>next/image</code>
+      </h2>
+      <p className="text-xs">
+        Next.js tilbyder en simpel måde at optimere billeder via{" "}
+        <code>Image</code>-komponenten. Her er et eksempel:
+      </p>
 
-function MyComponent() {
+      <CodeBlock
+        code={`import Image from 'next/image';
+
+export default function HomePage() {
   return (
-    <Image
-      src="/billede.jpg"
-      alt="Mit billede"
-      width={500}
-      height={300}
-      priority={false}
-      loading="lazy"
-    />
-  )
+    <div>
+      <Image
+        src="/example.jpg"
+        alt="Eksempel billede"
+        width={800}
+        height={600}
+      />
+    </div>
+  );
 }`}
+        language="javascript"
       />
 
-      <h2>Vigtige Egenskaber</h2>
-      <ul>
-        <li>Automatisk størrelsestilpasning til forskellige enheder</li>
-        <li>Konvertering til moderne formater (WebP, AVIF)</li>
-        <li>Lazy loading som standard</li>
-        <li>Blur-up placeholder mens billedet indlæses</li>
+      <h3 className="text-sm">Hvordan fungerer det?</h3>
+      <ul className="text-xs">
+        <li>
+          <strong>src:</strong> Billedets kilde kan være lokal (i din
+          public-mappe) eller en ekstern URL.
+        </li>
+        <li>
+          <strong>width og height:</strong> Du kan specificere billedets bredde
+          og højde for at sikre, at det gengives korrekt.
+        </li>
+        <li>
+          <strong>Lazy loading:</strong> Billeder indlæses kun, når de er
+          synlige i viewporten, hvilket forbedrer performance.
+        </li>
       </ul>
 
-      <h2>Responsive Billeder</h2>
+      <h5 className="text-base">Eksempel: Responsivt billede</h5>
+      <p className="text-xs">
+        Next.js gør det nemt at håndtere responsive billeder ved at bruge
+        egenskaben <code>layout="responsive"</code>. Dette tilpasser billedets
+        størrelse dynamisk baseret på containerens bredde.
+      </p>
+
       <CodeBlock
-        language="typescript"
-        code={`<Image
-  src="/billede.jpg"
-  alt="Responsivt billede"
-  fill
-  sizes="(max-width: 768px) 100vw,
-         (max-width: 1200px) 50vw,
-         33vw"
-  className="object-cover"
-/>`}
+        code={`import Image from 'next/image';
+
+export default function ResponsiveImage() {
+  return (
+    <div>
+      <Image
+        src="/example.jpg"
+        alt="Responsivt billede"
+        layout="responsive"
+        width={16}
+        height={9}
+      />
+    </div>
+  );
+}`}
+        language="javascript"
       />
 
-      <h2>Med Blur Placeholder</h2>
-      <CodeBlock
-        language="typescript"
-        code={`<Image
-  src="/billede.jpg"
-  alt="Billede med blur"
-  width={500}
-  height={300}
-  placeholder="blur"
-  blurDataURL="data:image/jpeg;base64,/9j..."`}
-      />
-
-      <h2>Best Practices</h2>
-      <ul>
-        <li>Brug altid width og height props for at undgå layout shifts</li>
-        <li>Tilføj priority={`{true}`} til billeder over folden</li>
-        <li>Brug sizes prop for responsive billeder</li>
-        <li>Inkluder beskrivende alt tekster</li>
+      <h3 className="text-sm">Fordele ved Image Optimization</h3>
+      <ul className="text-xs">
+        <li>
+          <strong>Performance:</strong> Automatisk konvertering til moderne
+          billedformater som WebP forbedrer sideindlæsningstiden.
+        </li>
+        <li>
+          <strong>Lazy loading:</strong> Reducerer initial load tid ved kun at
+          indlæse billeder, når de bliver synlige.
+        </li>
+        <li>
+          <strong>Responsiv design:</strong> Dynamisk skalering af billeder
+          sikrer, at de ser skarpe ud på alle skærmstørrelser og enheder.
+        </li>
+        <li>
+          <strong>Indbygget caching:</strong> Optimerede billeder gemmes i cache
+          og leveres hurtigt til brugeren.
+        </li>
       </ul>
+
+      <h2 className="text-base">Konklusion</h2>
+      <p className="text-xs">
+        Image Optimization i Next.js gør det nemt at levere billeder, der er
+        hurtige og skalerbare, uden ekstra opsætning. Ved at bruge{" "}
+        <code>next/image</code>-komponenten kan du automatisk optimere billeder
+        for moderne webstandarder, reducere indlæsningstiden og levere en bedre
+        brugeroplevelse.
+      </p>
     </div>
   );
 }

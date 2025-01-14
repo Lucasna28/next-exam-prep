@@ -7,12 +7,15 @@ export default function DynamicRoutingPage() {
 
       <h2 className="text-base">Hvad er Dynamic Routing?</h2>
       <p className="text-xs">
-        Dynamic Routing gør det muligt at oprette sider med dynamiske URLer, der indeholder variable værdier. Det bruges til f.eks. blogindlæg, produktsider og brugerprofiler.
+        Dynamic Routing gør det muligt at oprette sider med dynamiske URLer, der
+        indeholder variable værdier. Det bruges til f.eks. blogindlæg,
+        produktsider og brugerprofiler.
       </p>
 
       <h2 className="text-base">Eksempel: Blogindlæg</h2>
       <p className="text-xs">
-        Brug en fil som `pages/posts/[slug].tsx` til at håndtere blogindlæg med unikke slugs.
+        Brug en fil som `pages/posts/[slug].tsx` til at håndtere blogindlæg med
+        unikke slugs.
       </p>
 
       <CodeBlock
@@ -22,14 +25,19 @@ export default function Post({ params }) {
 }
 
 // URL: /posts/min-første-post
-// Vis: "Post: min-første-post"`} 
+// Vis: "Post: min-første-post"`}
         language="typescript"
       />
 
       <h3 className="text-sm">Hvordan fungerer det?</h3>
       <ul className="text-xs">
-        <li><strong>Filnavn:</strong> `[slug].tsx` håndterer dynamiske URLer.</li>
-        <li><strong>params.slug:</strong> URLen `/posts/min-første-post` sætter `params.slug` til `min-første-post`.</li>
+        <li>
+          <strong>Filnavn:</strong> `[slug].tsx` håndterer dynamiske URLer.
+        </li>
+        <li>
+          <strong>params.slug:</strong> URLen `/posts/min-første-post` sætter
+          `params.slug` til `min-første-post`.
+        </li>
       </ul>
 
       <h2 className="text-base">Eksempel: Produktsider</h2>
@@ -44,13 +52,15 @@ export default function Product({ params }) {
 }
 
 // URL: /products/123
-// Vis: "Produkt: 123"`} 
+// Vis: "Produkt: 123"`}
         language="typescript"
       />
 
       <h2 className="text-base">Konklusion</h2>
       <p className="text-xs">
-        Dynamic Routing gør det nemt at håndtere dynamiske sider baseret på URL-parametre. Brug filnavne som `[slug]` og `[id]` til at skabe fleksible ruter.
+        Dynamic Routing gør det nemt at håndtere dynamiske sider baseret på
+        URL-parametre. Brug filnavne som `[slug]` og `[id]` til at skabe
+        fleksible ruter.
       </p>
     </div>
   );

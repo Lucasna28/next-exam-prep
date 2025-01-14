@@ -31,7 +31,9 @@
 
 @media print {
   /* Skjul navigation og andre UI elementer ved print */
-  aside, button, nav {
+  aside,
+  button,
+  nav {
     display: none !important;
   }
 
@@ -70,12 +72,16 @@
   }
 
   /* Forhindrer opdeling af store blokke som lister */
-  ul, ol, p, h2 {
+  ul,
+  ol,
+  p,
+  h2 {
     page-break-inside: avoid;
   }
 
   /* Skift page-break på store overskrifter */
-  h1, h2 {
+  h1,
+  h2 {
     page-break-before: avoid; /* Tvinger en ny side før store overskrifter */
   }
   /* Skift page-break på store overskrifter */
@@ -97,4 +103,26 @@
   li {
     margin-left: 10px;
   }
+}
+
+/* Custom Scrollbar */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #e2e8f0;
+  border-radius: 3px;
+}
+
+.dark .scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #334155;
 }

@@ -1,8 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronRight } from "./icons/ChevronRight";
 
 interface DropdownProps {
   section: string;
@@ -10,74 +9,89 @@ interface DropdownProps {
     title: string;
     path: string;
   }[];
+  isSearching: boolean;
 }
 
-const Dropdown = ({ section, items }: DropdownProps) => {
+const Dropdown = ({ section, items, isSearching }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
+  useEffect(() => {
+    if (isSearching) {
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
+    }
+  }, [isSearching]);
+
   return (
-    <div className="mb-1">
+    <div className="mb-2">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between p-2
-                   text-sm font-medium
-                   bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800
-                   text-slate-600 dark:text-slate-300
-                   hover:text-slate-900 dark:hover:text-white
-                   rounded-lg transition-all duration-200
-                   group"
+                 text-sm font-medium
+                 rounded-lg
+                 group
+                 hover:bg-slate-100 dark:hover:bg-slate-800/50
+                 transition-all duration-200"
       >
         <span className="flex items-center gap-2">
           <span
-            className="w-1.5 h-1.5 rounded-full 
-                         bg-slate-400 dark:bg-slate-500
-                         group-hover:bg-blue-500 dark:group-hover:bg-blue-400
-                         transition-colors"
+            className={`h-1.5 w-1.5 rounded-full
+                         transition-colors duration-200
+                         ${
+                           isOpen
+                             ? "bg-indigo-500 dark:bg-indigo-400"
+                             : "bg-slate-300 dark:bg-slate-600"
+                         }`}
           />
           {section}
         </span>
-        <ChevronRight
-          className={`w-4 h-4 transition-transform duration-300 ease-in-out
-                     text-slate-400 group-hover:text-slate-600
-                     dark:text-slate-500 dark:group-hover:text-slate-300
-                     ${isOpen ? "rotate-90" : ""}`}
-        />
+        <svg
+          className={`w-4 h-4 transition-transform duration-200
+                   text-slate-400 dark:text-slate-500
+                   group-hover:text-slate-600 dark:group-hover:text-slate-300
+                   ${isOpen ? "rotate-90" : ""}`}
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
       </button>
 
-      <ul
-        className={`overflow-hidden transition-all duration-300 ease-in-out
-                   ${isOpen ? "mt-1 mb-3" : "mt-0 mb-0"}`}
-        style={{
-          maxHeight: isOpen ? items.length * 40 + "px" : "0px",
-          opacity: isOpen ? 1 : 0,
-        }}
+      <div
+        className={`overflow-hidden transition-all duration-200 ease-in-out
+                   ${
+                     isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+                   }`}
       >
-        {items.map((item) => {
-          const isActive = pathname === item.path;
-          return (
-            <li key={item.path} className="px-2">
+        <div className="pt-1 pb-2">
+          {items.map((item) => {
+            const isActive = pathname === item.path;
+            return (
               <Link
+                key={item.path}
                 href={item.path}
-                className={`block py-2 px-4 text-sm rounded-md
-                          transition-all duration-200
-                          ${
-                            isActive
-                              ? "bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"
-                              : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
-                          }`}
+                className={`block px-4 py-2 text-sm rounded-lg
+                         transition-all duration-200
+                         ${
+                           isActive
+                             ? "bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400"
+                             : "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/30"
+                         }`}
               >
-                <span className="flex items-center gap-2">
-                  {isActive && (
-                    <span className="w-1 h-1 rounded-full bg-blue-500" />
-                  )}
-                  {item.title}
-                </span>
+                {item.title}
               </Link>
-            </li>
-          );
-        })}
-      </ul>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };

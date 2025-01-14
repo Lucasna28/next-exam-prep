@@ -1,8 +1,12 @@
+"use client";
 import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
 import Dropdown from "./Dropdown";
+import { useState } from "react";
 
 const Navigation = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
   const topics = [
     {
       section: "Next.js Grundlæggende",
@@ -129,57 +133,90 @@ const Navigation = () => {
     },
   ];
 
+  // Filtrer emner baseret på søgeord
+  const filteredTopics = topics
+    .map((section) => ({
+      ...section,
+      items: section.items.filter(
+        (item) =>
+          item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          section.section.toLowerCase().includes(searchQuery.toLowerCase())
+      ),
+    }))
+    .filter((section) => section.items.length > 0);
+
   return (
-    <aside
-      className="fixed left-0 top-0 w-72 h-screen 
-                bg-white dark:bg-slate-900 
-                border-r border-slate-200 dark:border-slate-800
-                shadow-lg
-                p-4 overflow-y-auto
-                transition-colors duration-200"
-    >
-      <div className="mb-8 px-2">
+    <aside className="fixed left-0 top-0 w-72 h-screen bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-r border-slate-200/50 dark:border-slate-700/50">
+      <div className="sticky top-0 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border-b border-slate-200/50 dark:border-slate-700/50 p-4">
         <div className="flex justify-between items-center mb-4">
           <Link
             href="/"
-            className="text-xl font-bold 
-                     bg-gradient-to-r from-blue-600 to-blue-400 
-                     dark:from-blue-400 dark:to-blue-300
-                     text-transparent bg-clip-text"
+            className="text-xl font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
           >
             Next.js Exam Prep
           </Link>
           <ThemeToggle />
         </div>
-        <div className="relative">
+
+        <div className="relative group">
           <input
             type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Søg emner..."
             className="w-full py-2 px-4 pr-10
-                     bg-slate-100 dark:bg-slate-800
+                     bg-slate-100/50 dark:bg-slate-800/50
                      text-slate-900 dark:text-slate-100
                      placeholder-slate-400 dark:placeholder-slate-500
-                     rounded-lg
-                     border border-transparent
-                     focus:border-blue-500 dark:focus:border-blue-400
-                     focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20
+                     rounded-xl
+                     border border-slate-200/50 dark:border-slate-700/50
+                     backdrop-blur-sm
+                     focus:border-indigo-500 dark:focus:border-indigo-400
+                     focus:ring-2 focus:ring-indigo-500/20
                      outline-none
                      transition-all duration-200"
           />
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery("")}
+              className="absolute right-10 top-1/2 -translate-y-1/2 
+                       text-slate-400 hover:text-slate-600
+                       dark:text-slate-500 dark:hover:text-slate-300
+                       transition-colors duration-200"
+            >
+              ✕
+            </button>
+          )}
+          <span
+            className="absolute right-3 top-1/2 -translate-y-1/2 
+                        text-slate-400 dark:text-slate-500
+                        group-hover:text-indigo-500 dark:group-hover:text-indigo-400
+                        transition-colors duration-200"
+          >
             🔍
           </span>
         </div>
       </div>
 
-      <nav className="space-y-1 px-2">
-        {topics.map((section) => (
-          <Dropdown
-            key={section.section}
-            section={section.section}
-            items={section.items}
-          />
-        ))}
+      <nav
+        className="h-[calc(100vh-116px)] overflow-y-auto px-4 py-2
+                    scrollbar-thin scrollbar-thumb-slate-200 dark:scrollbar-thumb-slate-700
+                    scrollbar-track-transparent"
+      >
+        {searchQuery && filteredTopics.length === 0 ? (
+          <p className="text-sm text-slate-500 dark:text-slate-400 p-2">
+            Ingen resultater fundet for "{searchQuery}"
+          </p>
+        ) : (
+          filteredTopics.map((section) => (
+            <Dropdown
+              key={section.section}
+              section={section.section}
+              items={section.items}
+              isSearching={searchQuery.length > 0}
+            />
+          ))
+        )}
       </nav>
     </aside>
   );
