@@ -276,10 +276,14 @@ const Navigation = () => {
     {
       section: "Performance",
       items: [
-        { title: "Lazy Loading", path: "/topics/lazy-loading" },
-        { title: "Code Splitting", path: "/topics/code-splitting" },
-        { title: "Caching", path: "/topics/caching" },
-        { title: "Edge Rendering", path: "/topics/edge-rendering" },
+        { title: "Lazy Loading", path: "/topics/performance/lazy-loading" },
+        { title: "Code Splitting", path: "/topics/performance/code-splitting" },
+        { title: "Caching", path: "/topics/performance/caching" },
+        { title: "Edge Rendering", path: "/topics/performance/edge-rendering" },
+        {
+          title: "Prefetching & Preloading",
+          path: "/topics/performance/prefetching-preloading",
+        },
       ],
     },
     {
