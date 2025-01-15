@@ -123,7 +123,7 @@ new PersonWithArrow();`}
       <ul className="text-xs">
         <li>
           <strong>Enkel funktion uden parametre:</strong>{" "}
-          <code>() ={">"} 'Hello World'</code>
+          <code>() ={">"} &apos;Hello World&apos;</code>
         </li>
         <li>
           <strong>Enkel funktion med ét parameter:</strong>{" "}

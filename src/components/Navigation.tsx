@@ -250,9 +250,25 @@ const Navigation = () => {
     {
       section: "Styling & UI",
       items: [
+        {
+          title: "Styling and UI",
+          path: "/topics/styling-and-ui",
+          subItems: [
+            {
+              title: "Tailwind CSS",
+              path: "/topics/styling-and-ui/tailwind-css",
+            },
+            {
+              title: "Styled Components",
+              path: "/topics/styling-and-ui/styled-components",
+            },
+            {
+              title: "Animationer med Framer Motion",
+              path: "/topics/styling-and-ui/animationer-framer-motion",
+            },
+          ],
+        },
         { title: "CSS Modules", path: "/topics/css-modules" },
-        { title: "Styled Components", path: "/topics/styled-components" },
-        { title: "Tailwind CSS", path: "/topics/tailwind" },
         { title: "SASS/SCSS", path: "/topics/sass" },
         { title: "Animationer", path: "/topics/animations" },
       ],
@@ -260,10 +276,14 @@ const Navigation = () => {
     {
       section: "Performance",
       items: [
-        { title: "Lazy Loading", path: "/topics/lazy-loading" },
-        { title: "Code Splitting", path: "/topics/code-splitting" },
-        { title: "Caching", path: "/topics/caching" },
-        { title: "Edge Rendering", path: "/topics/edge-rendering" },
+        { title: "Lazy Loading", path: "/topics/performance/lazy-loading" },
+        { title: "Code Splitting", path: "/topics/performance/code-splitting" },
+        { title: "Caching", path: "/topics/performance/caching" },
+        { title: "Edge Rendering", path: "/topics/performance/edge-rendering" },
+        {
+          title: "Prefetching & Preloading",
+          path: "/topics/performance/prefetching-preloading",
+        },
       ],
     },
     {

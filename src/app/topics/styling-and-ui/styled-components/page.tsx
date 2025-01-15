@@ -5,25 +5,33 @@ export default function StyledComponentsPage() {
     <div className="prose lg:prose-lg">
       <h1 className="text-lg">Styled Components</h1>
       <p className="text-base">
-        Styled Components er en populær CSS-in-JS løsning, der giver mulighed for at skrive styles direkte i dine JavaScript- eller TypeScript-filer. Det bruger template literals til at definere komponent-specifikke stilarter, som derefter bliver tilføjet som unikke klasser i DOM'en.
+        Styled Components er en populær CSS-in-JS løsning, der giver mulighed
+        for at skrive styles direkte i dine JavaScript- eller TypeScript-filer.
+        Det bruger template literals til at definere komponent-specifikke
+        stilarter, som derefter bliver tilføjet som unikke klasser i
+        DOM&apos;en.
       </p>
 
       <h2 className="text-base">Fordele ved Styled Components</h2>
       <ul className="text-base">
         <li>
-          <strong>Scoped styles:</strong> Alle stilarter er isolerede til den specifikke komponent.
+          <strong>Scoped styles:</strong> Alle stilarter er isolerede til den
+          specifikke komponent.
         </li>
         <li>
-          <strong>Dynamiske styles:</strong> Du kan nemt tilpasse styles baseret på props.
+          <strong>Dynamiske styles:</strong> Du kan nemt tilpasse styles baseret
+          på props.
         </li>
         <li>
-          <strong>CSS-in-JS:</strong> Ingen eksterne CSS-filer er nødvendige, hvilket gør det lettere at vedligeholde.
+          <strong>CSS-in-JS:</strong> Ingen eksterne CSS-filer er nødvendige,
+          hvilket gør det lettere at vedligeholde.
         </li>
       </ul>
 
       <h2 className="text-base">Eksempel</h2>
       <p className="text-base">
-        Her er et simpelt eksempel på, hvordan du kan bruge Styled Components til at style en knap:
+        Her er et simpelt eksempel på, hvordan du kan bruge Styled Components
+        til at style en knap:
       </p>
       <CodeBlock
         code={`// installation
@@ -53,7 +61,8 @@ export default function App() {
 
       <h2 className="text-base">Hvordan virker det?</h2>
       <p className="text-base">
-        Styled Components genererer unikke klasse-navne og tilføjer dem dynamisk til DOM'en. Det sikrer, at styles ikke kolliderer med hinanden.
+        Styled Components genererer unikke klasse-navne og tilføjer dem dynamisk
+        til DOM&apos;en. Det sikrer, at styles ikke kolliderer med hinanden.
       </p>
 
       <h2 className="text-base">Brug af Props til Dynamiske Styles</h2>
@@ -83,17 +92,19 @@ export default function App() {
 
       <h2 className="text-base">Begrænsninger</h2>
       <ul className="text-base">
+        <li>Kan tilføje kompleksitet i store projekter med mange styles.</li>
         <li>
-          Kan tilføje kompleksitet i store projekter med mange styles.
-        </li>
-        <li>
-          Større runtime overhead sammenlignet med præ-kompilerede CSS-løsninger.
+          Større runtime overhead sammenlignet med præ-kompilerede
+          CSS-løsninger.
         </li>
       </ul>
 
       <h2 className="text-base">Konklusion</h2>
       <p className="text-base">
-        Styled Components er en fleksibel og kraftfuld løsning for moderne UI-udvikling, især når du ønsker dynamiske og scoped styles. Det er dog vigtigt at overveje performance og projektets størrelse, før du vælger det som din primære styling-metode.
+        Styled Components er en fleksibel og kraftfuld løsning for moderne
+        UI-udvikling, især når du ønsker dynamiske og scoped styles. Det er dog
+        vigtigt at overveje performance og projektets størrelse, før du vælger
+        det som din primære styling-metode.
       </p>
     </div>
   );
