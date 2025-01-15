@@ -174,19 +174,76 @@ const Navigation = () => {
         { title: "Generics", path: "/topics/generics" },
         { title: "Type Manipulation", path: "/topics/type-manipulation" },
         { title: "Advanced Types", path: "/topics/advanced-types" },
-        { title: "Utility Types", path: "/topics/utility-types" },
+        {
+          title: "Utility Types",
+          path: "/topics/typescript/utility-types",
+          subItems: [
+            {
+              title: "Omit",
+              path: "/topics/typescript/utility-types/omit",
+            },
+            {
+              title: "Partial",
+              path: "/topics/typescript/utility-types/partial",
+            },
+            {
+              title: "Pick",
+              path: "/topics/typescript/utility-types/pick",
+            },
+          ],
+        },
       ],
     },
     {
       section: "JavaScript",
       items: [
-        { title: "Async Programming", path: "/topics/async-programming" },
-        { title: "Event Handling", path: "/topics/event-handling" },
-        { title: "Core Concepts", path: "/topics/js-core-concepts" },
-        { title: "Modern Features", path: "/topics/modern-js" },
         {
           title: "Array & Object Methods",
-          path: "/topics/array-object-methods",
+          path: "/topics/javascript/array-object-methods",
+        },
+        {
+          title: "Arrow Functions",
+          path: "/topics/javascript/arrow-functions",
+        },
+        {
+          title: "Callback Functions",
+          path: "/topics/javascript/callback-functions",
+        },
+        {
+          title: "Closure",
+          path: "/topics/javascript/closure",
+        },
+        {
+          title: "Debouncing & Throttling",
+          path: "/topics/javascript/debouncing-throttling",
+        },
+        {
+          title: "Destructuring",
+          path: "/topics/javascript/destructuring",
+        },
+        {
+          title: "Event Bubbling & Delegation",
+          path: "/topics/javascript/event-bubbling-delegation",
+        },
+        {
+          title: "Hoisting",
+          path: "/topics/javascript/hoisting",
+        },
+        {
+          title: "Modules & Bundling",
+          path: "/topics/javascript/modules-bundling",
+        },
+        {
+          title: "Promise, Async & Await",
+          path: "/topics/javascript/promise-async-await",
+        },
+        {
+          title: "Prototype & Prototypal Inheritance",
+          path: "/topics/javascript/prototype-prototypal-inheritance",
+        },
+        {
+          title: "Spread & Rest Operators",
+          path: "/topics/javascript/spread-rest-operators",
         },
       ],
     },
