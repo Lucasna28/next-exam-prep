@@ -42,7 +42,7 @@ document.body.addEventListener("click", () => {
         I ovenstående eksempel vil et klik på knappen <code>#myButton</code>{" "}
         trigge både eventet på knappen og eventet på dens forælder (i dette
         tilfælde <code>body</code>). Eventet &quot;bobler&quot; op fra det
-        målrettede element til de overordnede elementer i DOM'en.
+        målrettede element til de overordnede elementer i DOM&apos;en.
       </p>
 
       <h2 className="text-base">Hvad er Event Delegation?</h2>
