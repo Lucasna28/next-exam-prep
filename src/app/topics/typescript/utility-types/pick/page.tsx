@@ -29,9 +29,10 @@ const person: PersonNameAndAge = {
       <h2 className="text-base">Hvordan virker Pick?</h2>
       <ul className="text-xs">
         <li>
-          <strong>Syntax:</strong> <code>Pick&lt;T, 'key1' | 'key2'&gt;</code>,
-          hvor <code>T</code> er den oprindelige type, og du angiver de
-          egenskaber, du vil vælge.
+          <strong>Syntax:</strong>{" "}
+          <code>Pick&lt;T, &apos;key1&apos; | &apos;key2&apos;&gt;</code>, hvor{" "}
+          <code>T</code> er den oprindelige type, og du angiver de egenskaber,
+          du vil vælge.
         </li>
         <li>
           <strong>Brug:</strong> Bruges, når du kun vil have et subset af

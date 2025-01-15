@@ -30,9 +30,9 @@ const person: PersonWithoutEmail = {
       <h2 className="text-base">Hvordan virker Omit?</h2>
       <ul className="text-xs">
         <li>
-          <strong>Syntax:</strong> <code>Omit&lt;T, 'key'&gt;</code>, hvor{" "}
-          <code>T</code> er den oprindelige type og <code>'key'</code> er den
-          egenskab, der skal fjernes.
+          <strong>Syntax:</strong> <code>Omit&lt;T, &apos;key&apos;&gt;</code>,
+          hvor <code>T</code> er den oprindelige type og{" "}
+          <code>&apos;key&apos;</code> er den egenskab, der skal fjernes.
         </li>
         <li>
           <strong>Brug:</strong> Bruges, når du vil arbejde med en type uden en
