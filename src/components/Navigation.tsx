@@ -3,11 +3,30 @@ import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
 import Dropdown from "./Dropdown";
 import { useState } from "react";
+import path from "path";
+import { FaToolbox } from "react-icons/fa";
 
 const Navigation = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const topics = [
+    {
+      section: "Toolbox ",
+      items: [
+        {
+          title:"Outline",
+          path:"/toolbox/outline/page.tsx",
+        },
+        {
+          title:"Wordlist",
+          path:"/toolbox/wordlist/page.tsx",
+        },
+        {
+          title:"Prep questions",
+          path:"/toolbox/prep-questions/page.tsx",
+        },
+      ]
+    },
     {
       section: "Next.js Grundlæggende",
       items: [
