@@ -15,15 +15,15 @@ const Navigation = () => {
       items: [
         {
           title:"Outline",
-          path:"/toolbox/outline/page.tsx",
+          path:"/toolbox/outline/",
         },
         {
           title:"Wordlist",
-          path:"/toolbox/wordlist/page.tsx",
+          path:"/toolbox/wordlist/",
         },
         {
           title:"Prep questions",
-          path:"/toolbox/prep-questions/page.tsx",
+          path:"/toolbox/prep-questions/",
         },
       ]
     },
