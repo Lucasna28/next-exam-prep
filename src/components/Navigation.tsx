@@ -251,26 +251,111 @@ const Navigation = () => {
       section: "Styling & UI",
       items: [
         {
-          title: "Styling and UI",
-          path: "/topics/styling-and-ui",
+          title: "Tailwind CSS",
+          path: "/topics/styling-and-ui/tailwind-css",
           subItems: [
             {
-              title: "Tailwind CSS",
-              path: "/topics/styling-and-ui/tailwind-css",
+              title: "Grundlæggende Koncepter",
+              path: "/topics/styling-and-ui/tailwind-css/basics",
             },
             {
-              title: "Styled Components",
-              path: "/topics/styling-and-ui/styled-components",
+              title: "Responsive Design",
+              path: "/topics/styling-and-ui/tailwind-css/responsive",
             },
             {
-              title: "Animationer med Framer Motion",
-              path: "/topics/styling-and-ui/animationer-framer-motion",
+              title: "Custom Konfiguration",
+              path: "/topics/styling-and-ui/tailwind-css/configuration",
             },
           ],
         },
-        { title: "CSS Modules", path: "/topics/css-modules" },
-        { title: "SASS/SCSS", path: "/topics/sass" },
-        { title: "Animationer", path: "/topics/animations" },
+        {
+          title: "CSS Modules",
+          path: "/topics/styling-and-ui/css-modules",
+          subItems: [
+            {
+              title: "Lokal Scoping",
+              path: "/topics/styling-and-ui/css-modules/scoping",
+            },
+            {
+              title: "Composition",
+              path: "/topics/styling-and-ui/css-modules/composition",
+            },
+          ],
+        },
+        {
+          title: "Styled Components",
+          path: "/topics/styling-and-ui/styled-components",
+          subItems: [
+            {
+              title: "Dynamisk Styling",
+              path: "/topics/styling-and-ui/styled-components/dynamic",
+            },
+            {
+              title: "Theming",
+              path: "/topics/styling-and-ui/styled-components/theming",
+            },
+          ],
+        },
+        {
+          title: "SASS/SCSS",
+          path: "/topics/styling-and-ui/sass-scss",
+          subItems: [
+            {
+              title: "Variabler & Mixins",
+              path: "/topics/styling-and-ui/sass-scss/features",
+            },
+            {
+              title: "Nested Rules",
+              path: "/topics/styling-and-ui/sass-scss/nesting",
+            },
+          ],
+        },
+        {
+          title: "UI Patterns",
+          path: "/topics/styling-and-ui/ui-patterns",
+          subItems: [
+            {
+              title: "Responsive Layout",
+              path: "/topics/styling-and-ui/ui-patterns/responsive",
+            },
+            {
+              title: "Grid Systems",
+              path: "/topics/styling-and-ui/ui-patterns/grid",
+            },
+            {
+              title: "Flexbox Layout",
+              path: "/topics/styling-and-ui/ui-patterns/flexbox",
+            },
+          ],
+        },
+        {
+          title: "Animationer",
+          path: "/topics/styling-and-ui/animations",
+          subItems: [
+            {
+              title: "CSS Transitions",
+              path: "/topics/styling-and-ui/animations/transitions",
+            },
+            {
+              title: "Framer Motion",
+              path: "/topics/styling-and-ui/animations/framer-motion",
+            },
+          ],
+        },
+        {
+          title: "Dark Mode",
+          path: "/topics/styling-and-ui/dark-mode",
+          subItems: [
+            {
+              title: "Implementation",
+              path: "/topics/styling-and-ui/dark-mode/implementation",
+            },
+            {
+              title: "System Preferences",
+              path: "/topics/styling-and-ui/dark-mode/system-preferences",
+            },
+          ],
+        },
       ],
     },
     {
