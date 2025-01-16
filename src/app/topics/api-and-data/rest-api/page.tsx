@@ -4,13 +4,18 @@ export default function RestApiPage() {
   return (
     <div className="prose lg:prose-xs">
       <h1 className="text-lg">REST API</h1>
-      <p className="text-xs">
-        REST (Representational State Transfer) er en arkitektur for webservices, der kommunikerer over HTTP. REST API'er bruger HTTP-metoder som GET, POST, PUT og DELETE til at interagere med data. REST API'er er populære, fordi de er enkle at implementere og skalerbare.
+      <p className="text-xs text-gray-600 dark:text-gray-400">
+        REST API&apos;er er en arkitekturstil for at designe
+        netværksapplikationer. De bruger HTTP metoder som GET, POST, PUT og
+        DELETE til at udføre CRUD operationer på ressourcer.
       </p>
 
       <h2 className="text-base">Hvordan REST API fungerer</h2>
       <p className="text-xs">
-        I et REST API hentes data ved at sende HTTP-anmodninger til specifikke endpoints. Hver anmodning kan indeholde parametre, som definerer, hvilke data der skal returneres. REST API'er bruger ofte JSON som standardformat til at sende data.
+        I et REST API hentes data ved at sende HTTP-anmodninger til specifikke
+        endpoints. Hver anmodning kan indeholde parametre, som definerer, hvilke
+        data der skal returneres. REST API'er bruger ofte JSON som
+        standardformat til at sende data.
       </p>
 
       <h2 className="text-base">Eksempel på REST API i Next.js</h2>
@@ -47,15 +52,28 @@ export default function UsersPage() {
 
       <h2 className="text-base">Fordele ved REST API</h2>
       <ul className="text-xs">
-        <li><strong>Enkelhed:</strong> REST API'er er lette at forstå og implementere, hvilket gør dem til et godt valg til webapplikationer.</li>
-        <li><strong>Skalérbarhed:</strong> REST API'er er skalerbare og kan håndtere mange samtidige anmodninger effektivt.</li>
-        <li><strong>Uafhængighed:</strong> Klienter og servere er uafhængige af hinanden, hvilket giver fleksibilitet i udviklingen.</li>
+        <li>
+          <strong>Enkelhed:</strong> REST API'er er lette at forstå og
+          implementere, hvilket gør dem til et godt valg til webapplikationer.
+        </li>
+        <li>
+          <strong>Skalérbarhed:</strong> REST API'er er skalerbare og kan
+          håndtere mange samtidige anmodninger effektivt.
+        </li>
+        <li>
+          <strong>Uafhængighed:</strong> Klienter og servere er uafhængige af
+          hinanden, hvilket giver fleksibilitet i udviklingen.
+        </li>
       </ul>
 
       <h2 className="text-base">Next.js og REST API</h2>
-      <p className="text-xs">
-        I Next.js kan du bruge `fetch` eller et HTTP-bibliotek som Axios til at hente data fra REST API'er. Data kan hentes i server-side funktioner som `getServerSideProps` eller `getStaticProps` for at optimere indlæsningstiden, eller du kan bruge `useEffect` på klienten, som vist i eksemplet ovenfor.
+      <p className="text-xs text-gray-600 dark:text-gray-400">
+        Next.js&apos; API routes gør det nemt at bygge REST API&apos;er med
+        server-side logik.
       </p>
+
+      <li>GET /api/users - Hent alle brugere</li>
+      <li>POST /api/users - Opret ny bruger</li>
     </div>
   );
 }

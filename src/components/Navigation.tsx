@@ -3,8 +3,6 @@ import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
 import Dropdown from "./Dropdown";
 import { useState } from "react";
-import path from "path";
-import { FaToolbox } from "react-icons/fa";
 
 const Navigation = () => {
   const [searchQuery, setSearchQuery] = useState("");

@@ -142,7 +142,7 @@ const user: User = {
             </li>
             <li className="flex items-start gap-2">
               <span className="text-blue-500">•</span>
-              Undgå at bruge 'any' type hvor muligt
+              Undgå at bruge &apos;any&apos; type hvor muligt
             </li>
             <li className="flex items-start gap-2">
               <span className="text-blue-500">•</span>
