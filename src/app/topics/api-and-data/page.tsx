@@ -1,13 +1,12 @@
-import CodeBlock from "@/components/CodeBlock";
 import Link from "next/link";
 
 export default function APIAndDataPage() {
   return (
     <div className="prose lg:prose-xs">
       <div className="mb-8 p-6 bg-gradient-to-br from-purple-50 to-fuchsia-50 dark:from-purple-950 dark:to-fuchsia-950 rounded-lg border border-purple-100 dark:border-purple-900">
-        <h1 className="text-lg mb-2">API & Data</h1>
+        <h1 className="text-lg mb-2">API & Data Integration</h1>
         <p className="text-xs text-gray-600 dark:text-gray-400">
-          Integration og håndtering af data gennem forskellige API'er og
+          Lær at integrere og håndtere data gennem forskellige API&apos;er og
           datakilder i moderne webapplikationer.
         </p>
       </div>

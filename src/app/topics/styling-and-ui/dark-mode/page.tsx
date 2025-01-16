@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import CodeBlock from "@/components/CodeBlock";
 
 export default function DarkModePage() {
   return (
