@@ -1,135 +1,148 @@
 import CodeBlock from "@/components/CodeBlock";
 
-export default function CSSModulesScopingPage() {
+export default function FlexboxLayoutPage() {
   return (
     <div className="prose lg:prose-xs">
-      <div className="mb-8 p-6 bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-950 dark:to-rose-950 rounded-lg border border-pink-100 dark:border-pink-900">
-        <h1 className="text-lg mb-2">CSS Modules: Lokal Scoping</h1>
+      <div className="mb-8 p-6 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950 rounded-lg border border-blue-100 dark:border-blue-900">
+        <h1 className="text-lg mb-2">Flexbox Layout Patterns</h1>
         <p className="text-xs text-gray-600 dark:text-gray-400">
-          Lær hvordan CSS Modules løser navnekonflikter gennem automatisk lokal
-          scoping af class names.
+          Lær om almindelige Flexbox mønstre og hvordan du bruger dem til at
+          skabe fleksible layouts.
         </p>
       </div>
 
       <div className="space-y-8">
         <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-800">
-          <h2 className="text-base font-semibold mb-4">Basis Opsætning</h2>
+          <h2 className="text-base font-semibold mb-4">Basis Flexbox Layout</h2>
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-6">
-            CSS Modules er indbygget i Next.js. Opret en fil med .module.css
-            endelsen:
+            Almindelige Flexbox layouts:
           </p>
 
           <div className="mb-6">
             <CodeBlock
-              code={`// Button.module.css
-.button {
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  background-color: #3b82f6;
-  color: white;
+              code={`// Centreret indhold
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.primary {
-  background-color: #3b82f6;
-}
-
-.secondary {
-  background-color: #6b7280;
-}`}
-              language="css"
-            />
-          </div>
-
-          <div className="mb-6">
-            <CodeBlock
-              code={`// Button.tsx
-import styles from './Button.module.css';
-
-export function Button({ variant = 'primary', children }) {
-  return (
-    <button 
-      className={styles.button + ' ' + styles[variant]}
-    >
-      {children}
-    </button>
-  );
-}`}
-              language="tsx"
-            />
-          </div>
-        </div>
-
-        <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-800">
-          <h2 className="text-base font-semibold mb-4">Hvordan Det Virker</h2>
-          <p className="text-xs text-gray-600 dark:text-gray-400 mb-6">
-            CSS Modules genererer unikke class names ved build time:
-          </p>
-
-          <div className="mb-6">
-            <CodeBlock
-              code={`// Det du skriver
-.button { ... }
-
-// Det der genereres
-.Button_button__xK_82 { ... }
-
-// I din HTML
-<button class="Button_button__xK_82 Button_primary__dR_4f">
-  Klik Her
-</button>`}
-              language="css"
-            />
-          </div>
-        </div>
-
-        <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-800">
-          <h2 className="text-base font-semibold mb-4">Avanceret Brug</h2>
-          <p className="text-xs text-gray-600 dark:text-gray-400 mb-6">
-            Brug af globale classes og kombinering af styles:
-          </p>
-
-          <div className="mb-6">
-            <CodeBlock
-              code={`// Card.module.css
-/* Global class */
-:global(.card-grid) {
-  display: grid;
-  gap: 1rem;
-}
-
-/* Lokal class med global modifier */
-.card:global(.highlighted) {
-  border-color: #3b82f6;
-}
-
-/* Compose flere classes */
-.cardHeader {
-  composes: flexBetween from global;
+// Navigation bar
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 1rem;
+  
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+// Card layout
+.card {
+  display: flex;
+  flex-direction: column;
+  
+  .card-body {
+    flex: 1;  // Fylder resterende plads
+  }
+  
+  .card-footer {
+    margin-top: auto;  // Skubber footer til bunden
+  }
 }`}
               language="css"
             />
           </div>
+        </div>
+
+        <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-800">
+          <h2 className="text-base font-semibold mb-4">Responsive Flexbox</h2>
+          <p className="text-xs text-gray-600 dark:text-gray-400 mb-6">
+            Tilpas layouts til forskellige skærmstørrelser:
+          </p>
 
           <div className="mb-6">
             <CodeBlock
-              code={`// Card.tsx
-import styles from './Card.module.css';
-import clsx from 'clsx';
+              code={`.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  
+  .flex-item {
+    flex: 1 1 300px;  // Grow, shrink, basis
+    min-width: 0;  // Forhindrer overflow
+  }
+}
 
-export function Card({ highlighted }) {
-  return (
-    <div className={clsx(
-      styles.card,
-      highlighted && 'highlighted'
-    )}>
-      <div className={styles.cardHeader}>
-        {/* Header indhold */}
-      </div>
-    </div>
-  );
+// Responsiv navigation
+.responsive-nav {
+  display: flex;
+  align-items: center;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    
+    .nav-links {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
 }`}
-              language="tsx"
+              language="css"
+            />
+          </div>
+        </div>
+
+        <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-800">
+          <h2 className="text-base font-semibold mb-4">
+            Avancerede Flexbox Teknikker
+          </h2>
+          <p className="text-xs text-gray-600 dark:text-gray-400 mb-6">
+            Udnyt flex-grow, flex-shrink og flex-basis:
+          </p>
+
+          <div className="mb-6">
+            <CodeBlock
+              code={`// Holy Grail Layout
+.holy-grail {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  
+  header, footer {
+    flex: 0 0 auto;
+  }
+  
+  .content {
+    flex: 1 0 auto;
+    display: flex;
+    
+    main {
+      flex: 1;
+    }
+    
+    aside {
+      flex: 0 0 200px;
+      
+      &.left {
+        order: -1;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      
+      aside {
+        flex: 0 0 auto;
+      }
+    }
+  }
+}`}
+              language="css"
             />
           </div>
         </div>
@@ -153,10 +166,11 @@ export function Card({ highlighted }) {
               />
             </svg>
             <div>
-              <strong className="block text-xs mb-1">Beskrivende Navne</strong>
+              <strong className="block text-xs mb-1">
+                Brug Flex Shorthand med Omtanke
+              </strong>
               <p className="text-xs text-gray-600 dark:text-gray-400">
-                Brug semantiske og beskrivende class names der reflekterer
-                komponentens formål.
+                Vær eksplicit med flex-grow, flex-shrink, og flex-basis værdier.
               </p>
             </div>
           </div>
@@ -176,10 +190,9 @@ export function Card({ highlighted }) {
               />
             </svg>
             <div>
-              <strong className="block text-xs mb-1">Modularitet</strong>
+              <strong className="block text-xs mb-1">Husk min-width: 0</strong>
               <p className="text-xs text-gray-600 dark:text-gray-400">
-                Hold CSS tæt koblet til komponenten og undgå at dele styles på
-                tværs af komponenter.
+                Forhindrer flex items i at vokse ud over deres container.
               </p>
             </div>
           </div>
@@ -199,10 +212,10 @@ export function Card({ highlighted }) {
               />
             </svg>
             <div>
-              <strong className="block text-xs mb-1">Undgå Global Scope</strong>
+              <strong className="block text-xs mb-1">Test Cross-Browser</strong>
               <p className="text-xs text-gray-600 dark:text-gray-400">
-                Brug kun :global() når det er absolut nødvendigt, og dokumenter
-                hvorfor.
+                Flexbox opfører sig forskelligt i nogle browsere - test
+                grundigt.
               </p>
             </div>
           </div>

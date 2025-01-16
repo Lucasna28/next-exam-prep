@@ -1,113 +1,148 @@
-'use client'
+"use client";
 
+import Link from "next/link";
 import CodeBlock from "@/components/CodeBlock";
-import { useState } from "react";
 
 export default function DarkModePage() {
-  const [darkMode, setDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
-
   return (
-    <div className={`prose lg:prose-lg ${darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
-      <h1 className="text-lg">Dark Mode</h1>
-      <p className="text-base">
-        Dark Mode er en populær funktion i moderne applikationer, der giver brugerne mulighed for at vælge mellem et lyst og et mørkt tema. Det forbedrer læsbarheden i lavbelysning og kan reducere øjenbelastning.
-      </p>
+    <div className="prose lg:prose-xs">
+      <div className="mb-8 p-6 bg-gradient-to-br from-purple-50 to-fuchsia-50 dark:from-purple-950 dark:to-fuchsia-950 rounded-lg border border-purple-100 dark:border-purple-900">
+        <h1 className="text-lg mb-2">Dark Mode i Modern Web Development</h1>
+        <p className="text-xs text-gray-600 dark:text-gray-400">
+          En guide til implementering af dark mode i moderne web applikationer
+          med fokus på brugeroplevelse og tilgængelighed.
+        </p>
+      </div>
 
-      <h2 className="text-base">Grundlæggende Eksempel</h2>
-      <p className="text-base">
-        Her er et simpelt eksempel på implementering af Dark Mode med React:
-      </p>
-      <CodeBlock
-        code={`import { useState } from "react";
+      <div className="space-y-8">
+        <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-800">
+          <h2 className="text-base font-semibold mb-4">Hvorfor Dark Mode?</h2>
+          <div className="space-y-4">
+            <div className="flex items-start gap-3">
+              <svg
+                className="w-4 h-4 mt-1 text-blue-500 shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                />
+              </svg>
+              <div>
+                <strong className="block text-sm mb-1">
+                  Bedre Brugeroplevelse
+                </strong>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Reducerer øjenbelastning ved brug i mørke omgivelser og giver
+                  brugeren kontrol over deres foretrukne tema.
+                </p>
+              </div>
+            </div>
 
-export default function DarkModeExample() {
-  const [darkMode, setDarkMode] = useState(false);
+            <div className="flex items-start gap-3">
+              <svg
+                className="w-4 h-4 mt-1 text-blue-500 shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
+              <div>
+                <strong className="block text-sm mb-1">Batterilevetid</strong>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Kan reducere strømforbruget på enheder med OLED/AMOLED skærme.
+                </p>
+              </div>
+            </div>
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
+            <div className="flex items-start gap-3">
+              <svg
+                className="w-4 h-4 mt-1 text-blue-500 shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </svg>
+              <div>
+                <strong className="block text-sm mb-1">Tilgængelighed</strong>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Imødekommer brugere med lysfølsomhed og forskellige visuelle
+                  præferencer.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-  return (
-    <div style={{
-      backgroundColor: darkMode ? "#121212" : "#FFFFFF",
-      color: darkMode ? "#FFFFFF" : "#000000",
-      minHeight: "100vh",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-    }}>
-      <h1>Dark Mode {darkMode ? "On" : "Off"}</h1>
-      <button onClick={toggleDarkMode}>
-        Skift til {darkMode ? "Lyst" : "Mørkt"} Tema
-      </button>
-    </div>
-  );
-}`}
-        language="javascript"
-      />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Link
+            href="/topics/styling-and-ui/dark-mode/implementation"
+            className="block p-6 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-blue-500 transition-colors"
+          >
+            <h2 className="text-base font-semibold mb-2">
+              Implementation Guide
+            </h2>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              Lær hvordan du implementerer dark mode i din applikation med
+              Next.js og Tailwind CSS.
+            </p>
+            <div className="text-sm text-blue-500">Læs mere →</div>
+          </Link>
 
-      <h2 className="text-base">CSS-Tilgang</h2>
-      <p className="text-base">
-        Alternativt kan du bruge CSS-klasser og betingede renderingsteknikker til at implementere Dark Mode:
-      </p>
-      <CodeBlock
-        code={`// styles.css
-.dark-mode {
-  background-color: #121212;
-  color: #ffffff;
-}
-.light-mode {
-  background-color: #ffffff;
-  color: #000000;
-}`}
-        language="css"
-      />
-      <CodeBlock
-        code={`import { useState } from "react";
-import "./styles.css";
+          <Link
+            href="/topics/styling-and-ui/dark-mode/system-preferences"
+            className="block p-6 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-blue-500 transition-colors"
+          >
+            <h2 className="text-base font-semibold mb-2">System Preferences</h2>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              Håndter system-level dark mode præferencer og brugervalg.
+            </p>
+            <div className="text-sm text-blue-500">Læs mere →</div>
+          </Link>
+        </div>
 
-export default function DarkModeWithCSS() {
-  const [darkMode, setDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
-
-  return (
-    <div className={darkMode ? "dark-mode" : "light-mode"}>
-      <h1>Dark Mode {darkMode ? "On" : "Off"}</h1>
-      <button onClick={toggleDarkMode}>
-        Skift til {darkMode ? "Lyst" : "Mørkt"} Tema
-      </button>
-    </div>
-  );
-}`}
-        language="javascript"
-      />
-
-      <h2 className="text-base">Fordele ved Dark Mode</h2>
-      <ul className="text-base">
-        <li><strong>Bedre læsbarhed:</strong> Mindsker øjenbelastning i mørke omgivelser.</li>
-        <li><strong>Æstetisk:</strong> Kan give en moderne og elegant følelse.</li>
-        <li><strong>Energieffektivitet:</strong> Reducerer strømforbrug på OLED-skærme.</li>
-      </ul>
-
-      <h2 className="text-base">Konklusion</h2>
-      <p className="text-base">
-        Dark Mode er blevet en standardfunktion i mange applikationer. Ved at implementere denne funktion kan du forbedre brugeroplevelsen og tilbyde fleksibilitet i visningen.
-      </p>
-
-      <button
-        onClick={toggleDarkMode}
-        className="mt-4 px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600"
-      >
-        Skift til {darkMode ? "Lyst" : "Mørkt"} Tema
-      </button>
+        <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-800">
+          <h2 className="text-base font-semibold mb-4">Vigtige Overvejelser</h2>
+          <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
+            <li className="flex items-start gap-2">
+              <span className="text-blue-500">•</span>
+              Vælg farver der fungerer godt i både lyst og mørkt tema
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-blue-500">•</span>
+              Sørg for tilstrækkelig kontrast mellem tekst og baggrund
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-blue-500">•</span>
+              Test med forskellige skærmindstillinger og lysforhold
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-blue-500">•</span>
+              Husk at gemme brugerens tema-præference
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-blue-500">•</span>
+              Implementer smooth transitions mellem temaer
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
