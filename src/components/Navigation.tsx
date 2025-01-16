@@ -14,18 +14,18 @@ const Navigation = () => {
       section: "Toolbox ",
       items: [
         {
-          title:"Outline",
-          path:"/toolbox/outline/",
+          title: "Outline",
+          path: "/toolbox/outline/",
         },
         {
-          title:"Wordlist",
-          path:"/toolbox/wordlist/",
+          title: "Wordlist",
+          path: "/toolbox/wordlist/",
         },
         {
-          title:"Prep questions",
-          path:"/toolbox/prep-questions/",
+          title: "Prep questions",
+          path: "/toolbox/prep-questions/",
         },
-      ]
+      ],
     },
     {
       section: "Next.js Grundlæggende",
@@ -189,30 +189,57 @@ const Navigation = () => {
     {
       section: "TypeScript",
       items: [
-        { title: "Types vs Interfaces", path: "/topics/types-interfaces" },
-        { title: "Generics", path: "/topics/generics" },
-        { title: "Type Manipulation", path: "/topics/type-manipulation" },
-        { title: "Advanced Types", path: "/topics/advanced-types" },
+        { title: "Enum", path: "/topics/typescript/enum" },
+        { title: "Generics", path: "/topics/typescript/generics" },
         {
-          title: "Utility Types",
-          path: "/topics/typescript/utility-types",
+          title: "Interfaces vs types",
+          path: "/topics/typescript/interfaces-vs-types",
           subItems: [
             {
-              title: "Omit",
-              path: "/topics/typescript/utility-types/omit",
+              title: "Interfaces",
+              path: "/topics/typescript/interfaces-vs-types/interfaces",
             },
             {
-              title: "Partial",
-              path: "/topics/typescript/utility-types/partial",
-            },
-            {
-              title: "Pick",
-              path: "/topics/typescript/utility-types/pick",
+              title: "Types",
+              path: "/topics/typescript/interfaces-vs-types/types",
             },
           ],
         },
+        {
+          title: "Insection-types",
+          path: "/topics/typescript/insection-types",
+        },
+        {
+          title: "Literal-types",
+          path: "/topics/typescript/literal-types",
+        },
+        {
+          title: "Optional Properties",
+          path: "/topics/typescript/optional-properties",
+        },
+        {
+          title: "Type Assertions",
+          path: "/topics/typescript/type-assertions",
+        },
+        {
+          title: "type-interference",
+          path: "/topics/typescript/type-interference",
+        },
+        {
+          title: "type-narrowing",
+          path: "/topics/typescript/type-narrowing",
+        },
+        {
+          title: "Union Types",
+          path: "/topics/typescript/union-types",
+        },
+        {
+          title: "Utility Types",
+          path: "/topics/typescript/utility-types",
+        },
       ],
     },
+
     {
       section: "JavaScript",
       items: [
@@ -440,7 +467,7 @@ const Navigation = () => {
             href="/"
             className="text-xl font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
           >
-            Next.js Exam Prep
+            Exam Prep
           </Link>
           <ThemeToggle />
         </div>
