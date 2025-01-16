@@ -10,11 +10,14 @@ const categories = [
     color: "from-blue-500 to-cyan-500",
     bgColor: "hover:bg-blue-50 dark:hover:bg-blue-950/30",
     links: [
-      { title: "Dynamic Routing", path: "/topics/next/dynamic-routing" },
-      { title: "Static Site Generation", path: "/topics/next/ssg" },
+      {
+        title: "Lær om Next.js",
+        path: "/topics/next/general",
+      },
+      { title: "Static Site Generation", path: "/topics/next/general/ssg" },
       {
         title: "Server Components",
-        path: "/topics/next/server-client-components",
+        path: "/topics/next/general/server-client-components",
       },
     ],
   },
@@ -25,9 +28,9 @@ const categories = [
     color: "from-cyan-500 to-teal-500",
     bgColor: "hover:bg-teal-50 dark:hover:bg-teal-950/30",
     links: [
-      { title: "Props & State", path: "/topics/react/props-state" },
-      { title: "Custom Hooks", path: "/topics/react/custom-hooks" },
-      { title: "Context API", path: "/topics/react/context-api" },
+      { title: "Lær om React", path: "/topics/react" },
+      { title: "State", path: "/topics/react/state" },
+      { title: "Props", path: "/topics/react/props" },
     ],
   },
   {
@@ -37,9 +40,9 @@ const categories = [
     color: "from-teal-500 to-green-500",
     bgColor: "hover:bg-green-50 dark:hover:bg-green-950/30",
     links: [
-      { title: "Types vs Interfaces", path: "/topics/types-interfaces" },
-      { title: "Generics", path: "/topics/generics" },
-      { title: "Advanced Types", path: "/topics/advanced-types" },
+      { title: "Typescript", path: "/topics/typescript" },
+      { title: "Generics", path: "/topics/typescript/generics" },
+      { title: "Advanced Types", path: "/topics/typescript/advanced-types" },
     ],
   },
   {
@@ -49,9 +52,9 @@ const categories = [
     color: "from-green-500 to-yellow-500",
     bgColor: "hover:bg-yellow-50 dark:hover:bg-yellow-950/30",
     links: [
-      { title: "Async Programming", path: "/topics/async-programming" },
-      { title: "Modern Features", path: "/topics/modern-js" },
-      { title: "Core Concepts", path: "/topics/js-core-concepts" },
+      { title: "javascript", path: "/topics/javascript" },
+      { title: "Modern Features", path: "/topics/javascript/modern-js" },
+      { title: "Arrow Functions", path: "/topics/javascript/arrow-functions" },
     ],
   },
 ];
