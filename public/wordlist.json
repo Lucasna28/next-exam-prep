@@ -1,81 +1,331 @@
 {
-    "terms": [
-      {
-        "term": "HTML",
-        "description": "HyperText Markup Language, the standard markup language for creating web pages.",
-        "category": "Next.js general"
-      },
-      {
-        "term": "CSS",
-        "description": "Cascading Style Sheets, used for describing the look and formatting of a document written in HTML.",
-        "category": "Frontend"
-      },
-      {
-        "term": "JavaScript",
-        "description": "A programming language that enables interactive web pages and is an essential part of web applications.",
-        "category": "Frontend"
-      },
-      {
-        "term": "React",
-        "description": "A JavaScript library for building user interfaces, particularly single page applications.",
-        "category": "Frontend"
-      },
-      {
-        "term": "Node.js",
-        "description": "A JavaScript runtime built on Chrome's V8 JavaScript engine, used for building scalable network applications.",
-        "category": "Backend"
-      },
-      {
-        "term": "Express",
-        "description": "A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.",
-        "category": "Backend"
-      },
-      {
-        "term": "MongoDB",
-        "description": "A source-available cross-platform document-oriented database program. Classified as a NoSQL database program.",
-        "category": "Database"
-      },
-      {
-        "term": "SQL",
-        "description": "Structured Query Language, used for managing and manipulating relational databases.",
-        "category": "Database"
-      },
-      {
-        "term": "API",
-        "description": "Application Programming Interface, a set of protocols and tools for building software applications.",
-        "category": "General"
-      },
-      {
-        "term": "Git",
-        "description": "A distributed version-control system for tracking changes in source code during software development.",
-        "category": "DevOps"
-      },
-      {
-        "term": "Docker",
-        "description": "A set of platform as a service products that use OS-level virtualization to deliver software in packages called containers.",
-        "category": "DevOps"
-      },
-      {
-        "term": "AWS",
-        "description": "Amazon Web Services, a subsidiary of Amazon providing on-demand cloud computing platforms and APIs.",
-        "category": "Cloud"
-      },
-      {
-        "term": "REST",
-        "description": "Representational State Transfer, an architectural style for designing networked applications.",
-        "category": "API"
-      },
-      {
-        "term": "GraphQL",
-        "description": "A query language for APIs and a runtime for executing those queries with your existing data.",
-        "category": "API"
-      },
-      {
-        "term": "TypeScript",
-        "description": "A strict syntactical superset of JavaScript that adds optional static typing to the language.",
-        "category": "Frontend"
-      }
-    ]
-  }
-  
-  
+  "terms": [
+    {
+      "term": "HTML",
+      "description": "HyperText Markup Language, den standard markup-sprog til at skabe websider.",
+      "category": "Next.js general"
+    },
+    {
+      "term": "CSS",
+      "description": "Cascading Style Sheets, et stilark-sprog, der beskriver, hvordan HTML-elementer skal vises på skærmen.",
+      "category": "Next.js general"
+    },
+    {
+      "term": "JavaScript",
+      "description": "Et programmeringssprog, der bruges til at lave interaktive elementer på websider.",
+      "category": "Next.js general"
+    },
+    {
+      "term": "Next.js",
+      "description": "En React-baseret framework til server-side rendering og statisk websidegenerering.",
+      "category": "Next.js general"
+    },
+    {
+      "term": "SSR (Server-Side Rendering)",
+      "description": "En teknik, hvor websiden bliver rendere på serveren og sendt til klienten som en fuld HTML-side.",
+      "category": "Next.js advanced"
+    },
+    {
+      "term": "SSG (Static Site Generation)",
+      "description": "En metode til at generere statiske HTML-sider på bygge-tidspunktet i stedet for ved anmodning.",
+      "category": "Next.js advanced"
+    },
+    {
+      "term": "API Routes",
+      "description": "En funktion i Next.js, der tillader oprettelse af API'er direkte i applikationen, uden at kræve en separat server.",
+      "category": "Next.js advanced"
+    },
+    {
+      "term": "React",
+      "description": "Et JavaScript-bibliotek til at bygge brugergrænseflader, især til single-page apps.",
+      "category": "React"
+    },
+    {
+      "term": "JSX",
+      "description": "JavaScript XML, en syntaksudvidelse, der lader dig skrive HTML-lignende kode i JavaScript.",
+      "category": "React"
+    },
+    {
+      "term": "Component",
+      "description": "En genanvendelig enhed i React, der styrer en del af brugergrænsefladen.",
+      "category": "React"
+    },
+    {
+      "term": "useState",
+      "description": "En React hook, der gør det muligt at tilføje lokal tilstand i funktionelle komponenter.",
+      "category": "React"
+    },
+    {
+      "term": "useEffect",
+      "description": "En React hook, der tillader sideeffekter som at hente data eller opdatere DOM.",
+      "category": "React"
+    },
+    {
+      "term": "TypeScript",
+      "description": "En superset af JavaScript, der tilføjer statisk typning til sproget for at forbedre fejlfindingskapacitet og udviklerproduktivitet.",
+      "category": "Typescript"
+    },
+    {
+      "term": "Interfaces",
+      "description": "En TypeScript-koncept, der beskriver kontrakter for objekters struktur.",
+      "category": "Typescript"
+    },
+    {
+      "term": "Generics",
+      "description": "En TypeScript-funktion, der tillader dig at skrive fleksible, genanvendelige funktioner og klasser med statisk typekontrol.",
+      "category": "Typescript"
+    },
+    {
+      "term": "Event Loop",
+      "description": "JavaScript’s mekanisme, der håndterer asynkrone operationer ved at køre opgaver i en bestemt rækkefølge.",
+      "category": "Javascript"
+    },
+    {
+      "term": "Promises",
+      "description": "En JavaScript-objekt, der repræsenterer den endelige afslutning (eller fejl) af en asynkron operation.",
+      "category": "Javascript"
+    },
+    {
+      "term": "Async/Await",
+      "description": "En syntaks i JavaScript, der gør det lettere at arbejde med asynkrone funktioner.",
+      "category": "Javascript"
+    },
+    {
+      "term": "Tailwind CSS",
+      "description": "En utility-first CSS framework, der giver dig mulighed for at bygge brugerdefinerede design hurtigt.",
+      "category": "Styling & ui"
+    },
+    {
+      "term": "CSS Grid",
+      "description": "Et layout-system i CSS, der gør det muligt at opbygge komplekse design med rækker og kolonner.",
+      "category": "Styling & ui"
+    },
+    {
+      "term": "Flexbox",
+      "description": "Et CSS layout-model, der gør det muligt at arrangere elementer i en fleksibel container.",
+      "category": "Styling & ui"
+    },
+    {
+      "term": "Dark Mode",
+      "description": "En brugergrænsefladeindstilling, der ændrer farveskemaet til en mørkere baggrund for at reducere øjenbelastning.",
+      "category": "Styling & ui"
+    },
+    {
+      "term": "Web Vitals",
+      "description": "Metrikker for at vurdere websidens præstationer i forhold til brugeroplevelse.",
+      "category": "Performance"
+    },
+    {
+      "term": "Code Splitting",
+      "description": "En metode til at opdele JavaScript-kode i mindre stykker, som kan indlæses på efterspørgsel.",
+      "category": "Performance"
+    },
+    {
+      "term": "REST API",
+      "description": "En API-arkitektur, der bruger HTTP-metoder som GET, POST, PUT og DELETE til at kommunikere med servere.",
+      "category": "API & Data"
+    },
+    {
+      "term": "GraphQL",
+      "description": "En query-sprog til API'er, der giver klienten mulighed for at specificere de data, der skal returneres.",
+      "category": "API & Data"
+    },
+    {
+      "term": "WebSocket",
+      "description": "En kommunikationsprotokol, der gør det muligt for servere og klienter at sende data i realtid.",
+      "category": "API & Data"
+    },
+    {
+      "term": "CORS",
+      "description": "Cross-Origin Resource Sharing, en mekanisme, der tillader eller nægter anmodninger om ressourcer fra et andet domæne.",
+      "category": "API & Data"
+    },
+    {
+      "term": "Unit Test",
+      "description": "En testmetode, der fokuserer på at teste enhedskomponenter i applikationen isoleret for sig selv.",
+      "category": "Testing"
+    },
+    {
+      "term": "Jest",
+      "description": "Et JavaScript-testframework til enhedstest og funktionel testning, der understøtter mocks og snapshots.",
+      "category": "Testing"
+    },
+    {
+      "term": "End-to-End Test",
+      "description": "Testning, hvor applikationens samlede funktionalitet bliver testet ved at simulere brugerens handlinger fra start til slut.",
+      "category": "Testing"
+    },
+    {
+      "term": "CI/CD",
+      "description": "Continuous Integration/Continuous Deployment, en praksis for løbende at integrere og distribuere kodeændringer.",
+      "category": "Diverse"
+    },
+    {
+      "term": "Version Control",
+      "description": "En metode til at spore og styre ændringer i koden, typisk ved hjælp af Git.",
+      "category": "Diverse"
+    },
+    {
+      "term": "Agile",
+      "description": "En projektledelsesmetode, der fokuserer på fleksibilitet, samarbejde og inkrementelle fremskridt.",
+      "category": "Diverse"
+    },
+
+    {
+      "term": "BEM (Block Element Modifier)",
+      "description": "En metode til at organisere og navngive CSS-klasser, der gør koden mere struktureret og genanvendelig.",
+      "category": "Styling & ui"
+    },
+    {
+      "term": "SASS",
+      "description": "En CSS-forprocessor, der giver ekstra funktionalitet som variabler, indlejrede regler og mixins.",
+      "category": "Styling & ui"
+    },
+    {
+      "term": "Styled Components",
+      "description": "Et bibliotek til at skrive CSS i JavaScript, som gør det muligt at style komponenter direkte.",
+      "category": "Styling & ui"
+    },
+    {
+      "term": "CSS-in-JS",
+      "description": "En teknik, hvor CSS-styling skrives direkte i JavaScript-filer, ofte brugt med React-komponenter.",
+      "category": "Styling & ui"
+    },
+    {
+      "term": "Progressive Web App (PWA)",
+      "description": "Webapps, der kan fungere offline og tilpasses mobile enheder som native apps, ved hjælp af service workers.",
+      "category": "Performance"
+    },
+    {
+      "term": "Service Workers",
+      "description": "En script, der kører i baggrunden og giver funktioner som offline kapabiliteter, push-notifikationer og caching.",
+      "category": "Performance"
+    },
+    {
+      "term": "Web Assembly",
+      "description": "En binær instruktionsformat, der gør det muligt at køre kode skrevet i andre programmeringssprog på webbrowseren.",
+      "category": "Performance"
+    },
+    {
+      "term": "Lazy Loading",
+      "description": "En teknik, der forsinker indlæsningen af ressourcer, såsom billeder eller scriptfiler, indtil de er nødvendige for at forbedre ydeevnen.",
+      "category": "Performance"
+    },
+    {
+      "term": "React Router",
+      "description": "Et bibliotek i React til at håndtere routing og navigation mellem forskellige sider eller komponenter i applikationen.",
+      "category": "React"
+    },
+    {
+      "term": "React Context API",
+      "description": "En metode til at dele globale tilstande i en React-app uden at skulle proppe props ned gennem mange komponenter.",
+      "category": "React"
+    },
+    {
+      "term": "Redux",
+      "description": "En state management-bibliotek, der bruges til at håndtere applikationens tilstand på en forudsigelig måde ved hjælp af actions og reducers.",
+      "category": "React"
+    },
+    {
+      "term": "React Native",
+      "description": "En platform til at bygge native mobile apps ved hjælp af JavaScript og React.",
+      "category": "React"
+    },
+    {
+      "term": "Type Inference",
+      "description": "En funktion i TypeScript, hvor typen af en variabel automatisk bestemmes ud fra den værdi, den får tildelt.",
+      "category": "Typescript"
+    },
+    {
+      "term": "Type Assertion",
+      "description": "En TypeScript-teknik, der gør det muligt at omgå statisk typekontrol og behandle en værdi som en anden type.",
+      "category": "Typescript"
+    },
+    {
+      "term": "Tuple",
+      "description": "En TypeScript-struktur, der gør det muligt at gemme flere forskellige datatyper i en enkelt samling.",
+      "category": "Typescript"
+    },
+    {
+      "term": "Spread Operator",
+      "description": "En operator i JavaScript og TypeScript, der gør det muligt at 'sprede' elementer fra en array eller objekt i en ny samling.",
+      "category": "Javascript"
+    },
+    {
+      "term": "Destructuring",
+      "description": "En teknik i JavaScript og TypeScript til hurtigt at udpakke værdier fra arrays eller objekter.",
+      "category": "Javascript"
+    },
+    {
+      "term": "Event Delegation",
+      "description": "En teknik, hvor man placerer en enkelt event listener på et overordnet element for at håndtere events for underordnede elementer.",
+      "category": "Javascript"
+    },
+    {
+      "term": "Node.js",
+      "description": "En JavaScript-runtime bygget på V8-motoren, der gør det muligt at køre JavaScript på server-siden.",
+      "category": "Javascript"
+    },
+    {
+      "term": "Webpack",
+      "description": "Et bundtværktøj til JavaScript-applikationer, der kombinerer alle scripts og assets til én eller flere bundle-filer.",
+      "category": "Diverse"
+    },
+    {
+      "term": "Babel",
+      "description": "En JavaScript-transpiler, der omdanner moderne JavaScript-kode til en version, der kan køres i ældre browsere.",
+      "category": "Diverse"
+    },
+    {
+      "term": "Git",
+      "description": "Et versionskontrolsystem, der bruges til at spore og administrere ændringer i kildekode.",
+      "category": "Diverse"
+    },
+    {
+      "term": "GitHub",
+      "description": "En webbaseret platform, der tilbyder Git-repository-hosting samt samarbejdsværktøjer som pull requests og issues.",
+      "category": "Diverse"
+    },
+    {
+      "term": "DevOps",
+      "description": "En metode til at integrere udvikling og drift for at gøre applikationsudvikling, test og deployment mere effektivt.",
+      "category": "Diverse"
+    },
+    {
+      "term": "TDD (Test-Driven Development)",
+      "description": "En softwareudviklingsteknik, hvor tests skrives før selve koden for at sikre funktionalitet og kvalitet.",
+      "category": "Testing"
+    },
+    {
+      "term": "Mocking",
+      "description": "En teknik i enhedstest, hvor man opretter objekter, der simulerer opførsel af de faktiske objekter, der testes.",
+      "category": "Testing"
+    },
+    {
+      "term": "Snapshot Testing",
+      "description": "En teknik i test, hvor output af en komponent gemmes som et snapshot og sammenlignes med fremtidige kørselers output.",
+      "category": "Testing"
+    },
+    {
+      "term": "Cypress",
+      "description": "Et end-to-end testværktøj, der er designet til at teste webapplikationer hurtigt og pålideligt.",
+      "category": "Testing"
+    },
+    {
+      "term": "Jasmine",
+      "description": "Et JavaScript testframework, der bruges til at skrive enhedstest og adfærdstest.",
+      "category": "Testing"
+    },
+    {
+      "term": "Mocha",
+      "description": "Et fleksibelt testframework for JavaScript, der bruges til både enheds- og integrationstest.",
+      "category": "Testing"
+    },
+    {
+      "term": "Cucumber",
+      "description": "Et testværktøj, der bruges til at skrive test i Gherkin-sprog, som gør det lettere for både udviklere og ikke-tekniske personer at forstå kravene.",
+      "category": "Testing"
+    }
+  ]
+}
+
