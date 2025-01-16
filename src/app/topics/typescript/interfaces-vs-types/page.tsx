@@ -1,66 +1,129 @@
 import CodeBlock from "@/components/CodeBlock";
+import Link from "next/link";
 
 export default function InterfacesVsTypesPage() {
   return (
     <div className="prose lg:prose-xs">
-      <h1 className="text-lg">Interfaces vs. Types i TypeScript</h1>
-      <p className="text-xs">
-        I TypeScript bruges både <strong>Interfaces</strong> og <strong>Types</strong> til at definere strukturer for objekter og andre datatyper. Selvom de er meget lig hinanden, er der nogle forskelle i deres anvendelse og funktionalitet. I denne artikel vil vi gennemgå forskellene og hvornår det er hensigtsmæssigt at bruge den ene over den anden.
-      </p>
+      <div className="mb-8 p-6 bg-gradient-to-br from-purple-50 to-fuchsia-50 dark:from-purple-950 dark:to-fuchsia-950 rounded-lg border border-purple-100 dark:border-purple-900">
+        <h1 className="text-lg mb-2">Interfaces vs Types</h1>
+        <p className="text-xs text-gray-600 dark:text-gray-400">
+          En sammenligning af interfaces og types i TypeScript, og hvornår du
+          skal bruge hvad.
+        </p>
+      </div>
 
-      <h2 className="text-base">Interfaces</h2>
-      <p className="text-xs">
-        <strong>Interfaces</strong> definerer en kontrakt, som objekter skal overholde. De bruges primært til at beskrive strukturen af objekter og klasser, og de kan udvides og implementeres. Interfaces er ideelle, når du arbejder med objekter, og du ønsker at definere specifikke egenskaber og deres typer.
-      </p>
-      <h3 className="text-sm">Eksempel: Interface</h3>
-      <CodeBlock
-        code={`interface Person {
+      <div className="space-y-8">
+        <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-800">
+          <h2 className="text-base font-semibold mb-4">Hovedforskelle</h2>
+          <div className="space-y-4">
+            <div>
+              <h3 className="text-sm font-medium mb-2">Udvidelse af typer</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                Interfaces kan udvides med nye felter efter deklaration, mens
+                types er låste efter deklaration.
+              </p>
+              <CodeBlock
+                code={`// Interface kan udvides
+interface Animal {
   name: string;
+}
+interface Animal {
   age: number;
+} // OK!
+
+// Type kan ikke udvides
+type Animal = {
+  name: string;
+}
+type Animal = {
+  age: number;
+} // Fejl!`}
+                language="typescript"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-sm font-medium mb-2">
+                Arv og Implementation
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                Interfaces er bedre til objekt-orienteret programmering med
+                klasser, mens types er bedre til funktionelle mønstre.
+              </p>
+              <CodeBlock
+                code={`// Interface med klasse
+interface Animal {
+  name: string;
+  makeSound(): void;
 }
 
-const person: Person = {
-  name: "John",
-  age: 30
-};`}
-        language="typescript"
-      />
-
-      <h2 className="text-base">Types</h2>
-      <p className="text-xs">
-        <strong>Types</strong> er mere fleksible end interfaces og kan bruges til at definere både objekter, primitive typer, funktioner og meget mere. De kan også bruges til at oprette union types og intersection types. Types er ideelle, når du ønsker en bredere fleksibilitet i dine typer.
-      </p>
-      <h3 className="text-sm">Eksempel: Type</h3>
-      <CodeBlock
-        code={`type Person = {
+class Dog implements Animal {
   name: string;
-  age: number;
-};
+  makeSound() {
+    console.log("Woof!");
+  }
+}
 
-const person: Person = {
-  name: "Jane",
-  age: 25
-};`}
-        language="typescript"
-      />
+// Type med funktion
+type StringTransformer = (str: string) => string;
 
-      <h3 className="text-sm">Forskel på Interfaces og Types</h3>
-      <ul className="text-xs">
-        <li><strong>Udvidelse:</strong> Interfaces kan udvides med <code>extends</code>, mens types kan bruge <code>&#123; ... &#125;</code> syntaxen til at oprette en ny type.</li>
-        <li><strong>Fleksibilitet:</strong> Types tilbyder mere fleksibilitet, da de kan bruges til funktioner, unioner, intersections og meget mere, mens interfaces kun er til objekter.</li>
-        <li><strong>Arv og Implementering:</strong> Interfaces kan implementeres i klasser, mens types ikke kan.</li>
-      </ul>
+const upperCase: StringTransformer = (str) => str.toUpperCase();`}
+                language="typescript"
+              />
+            </div>
+          </div>
+        </div>
 
-      <h3 className="text-sm">Hvornår skal man bruge Interfaces og Hvornår skal man bruge Types?</h3>
-      <ul className="text-xs">
-        <li><strong>Brug Interfaces:</strong> Når du arbejder med objekter og har behov for at udvide strukturer eller implementere dem i klasser.</li>
-        <li><strong>Brug Types:</strong> Når du har brug for fleksibilitet og ønsker at bruge unioner, intersection types, eller når du arbejder med funktioner.</li>
-      </ul>
+        <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-800">
+          <h2 className="text-base font-semibold mb-4">
+            Hvornår skal du bruge hvad?
+          </h2>
 
-      <h2 className="text-base">Konklusion</h2>
-      <p className="text-xs">
-        Både interfaces og types er kraftfulde værktøjer i TypeScript, og valget mellem de to afhænger af dit specifikke behov. Generelt kan du bruge interfaces til strukturerede objekter og klasser, mens types giver mere fleksibilitet og anvendelighed til et bredere spektrum af datatyper.
-      </p>
+          <div className="mb-6">
+            <h3 className="text-sm font-medium mb-2">Brug Interfaces når:</h3>
+            <ul className="list-disc pl-4 space-y-2 text-sm text-gray-600 dark:text-gray-400">
+              <li>Du definerer kontrakter for objekter eller klasser</li>
+              <li>Du har brug for at udvide typer senere</li>
+              <li>Du arbejder med objekt-orienteret kode</li>
+              <li>Du vil have bedre fejlmeddelelser</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-medium mb-2">Brug Types når:</h3>
+            <ul className="list-disc pl-4 space-y-2 text-sm text-gray-600 dark:text-gray-400">
+              <li>Du arbejder med funktioner eller tuples</li>
+              <li>Du har brug for union eller intersection types</li>
+              <li>Du vil mappe over typer eller bruge conditional types</li>
+              <li>Du vil have en type der ikke kan ændres</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Link
+            href="/topics/typescript/interfaces-vs-types/interfaces"
+            className="block p-6 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-blue-500 transition-colors"
+          >
+            <h2 className="text-base font-semibold mb-2">Interfaces</h2>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              Lær mere om interfaces og hvordan de bruges i TypeScript.
+            </p>
+            <div className="text-sm text-blue-500">Læs mere →</div>
+          </Link>
+
+          <Link
+            href="/topics/typescript/interfaces-vs-types/types"
+            className="block p-6 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-blue-500 transition-colors"
+          >
+            <h2 className="text-base font-semibold mb-2">Types</h2>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              Lær mere om type aliases og deres anvendelse i TypeScript.
+            </p>
+            <div className="text-sm text-blue-500">Læs mere →</div>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

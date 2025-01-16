@@ -14,22 +14,26 @@ const Navigation = () => {
       section: "Toolbox ",
       items: [
         {
-          title:"Outline",
-          path:"/toolbox/outline/",
+          title: "Outline",
+          path: "/toolbox/outline/",
         },
         {
-          title:"Wordlist",
-          path:"/toolbox/wordlist/",
+          title: "Wordlist",
+          path: "/toolbox/wordlist/",
         },
         {
-          title:"Prep questions",
-          path:"/toolbox/prep-questions/",
+          title: "Prep questions",
+          path: "/toolbox/prep-questions/",
         },
-      ]
+      ],
     },
     {
       section: "Next.js Grundlæggende",
       items: [
+        {
+          title: "Next.js",
+          path: "/topics/next/general",
+        },
         {
           title: "Dynamic Routing",
           path: "/topics/next/general/dynamic-routing",
@@ -57,6 +61,10 @@ const Navigation = () => {
     {
       section: "Next.js Avanceret",
       items: [
+        {
+          title: "Next.js",
+          path: "/topics/next/advanced",
+        },
         {
           title: "next.config.js",
           path: "/topics/next/advanced/next-config",
@@ -116,6 +124,10 @@ const Navigation = () => {
     {
       section: "React Koncepter",
       items: [
+        {
+          title: "React",
+          path: "/topics/react",
+        },
         {
           title: "Context API",
           path: "/topics/react/context",
@@ -188,34 +200,70 @@ const Navigation = () => {
     },
     {
       section: "TypeScript",
+      path: "/topics/typescript",
       items: [
-        { title: "Types vs Interfaces", path: "/topics/types-interfaces" },
-        { title: "Generics", path: "/topics/generics" },
-        { title: "Type Manipulation", path: "/topics/type-manipulation" },
-        { title: "Advanced Types", path: "/topics/advanced-types" },
         {
-          title: "Utility Types",
-          path: "/topics/typescript/utility-types",
+          title: "TypeScript",
+          path: "/topics/typescript",
+        },
+        { title: "Enum", path: "/topics/typescript/enum" },
+        { title: "Generics", path: "/topics/typescript/generics" },
+        {
+          title: "Interfaces vs types",
+          path: "/topics/typescript/interfaces-vs-types",
           subItems: [
             {
-              title: "Omit",
-              path: "/topics/typescript/utility-types/omit",
+              title: "Interfaces",
+              path: "/topics/typescript/interfaces-vs-types/interfaces",
             },
             {
-              title: "Partial",
-              path: "/topics/typescript/utility-types/partial",
-            },
-            {
-              title: "Pick",
-              path: "/topics/typescript/utility-types/pick",
+              title: "Types",
+              path: "/topics/typescript/interfaces-vs-types/types",
             },
           ],
         },
+        {
+          title: "Insection-types",
+          path: "/topics/typescript/insection-types",
+        },
+        {
+          title: "Literal-types",
+          path: "/topics/typescript/literal-types",
+        },
+        {
+          title: "Optional Properties",
+          path: "/topics/typescript/optional-properties",
+        },
+        {
+          title: "Type Assertions",
+          path: "/topics/typescript/type-assertions",
+        },
+        {
+          title: "type-interference",
+          path: "/topics/typescript/type-interference",
+        },
+        {
+          title: "type-narrowing",
+          path: "/topics/typescript/type-narrowing",
+        },
+        {
+          title: "Union Types",
+          path: "/topics/typescript/union-types",
+        },
+        {
+          title: "Utility Types",
+          path: "/topics/typescript/utility-types",
+        },
       ],
     },
+
     {
       section: "JavaScript",
       items: [
+        {
+          title: "JavaScript",
+          path: "/topics/javascript",
+        },
         {
           title: "Array & Object Methods",
           path: "/topics/javascript/array-object-methods",
@@ -269,6 +317,10 @@ const Navigation = () => {
     {
       section: "Styling & UI",
       items: [
+        {
+          title: "Styling & UI",
+          path: "/topics/styling-and-ui",
+        },
         {
           title: "Tailwind CSS",
           path: "/topics/styling-and-ui/tailwind-css",
@@ -380,37 +432,81 @@ const Navigation = () => {
     {
       section: "Performance",
       items: [
-        { title: "Lazy Loading", path: "/topics/performance/lazy-loading" },
-        { title: "Code Splitting", path: "/topics/performance/code-splitting" },
+        {
+          title: "Performance",
+          path: "/topics/performance",
+        },
+        {
+          title: "Bundled Analyser",
+          path: "/topics/performance/bundled-analyser",
+        },
         { title: "Caching", path: "/topics/performance/caching" },
+        { title: "Code Splitting", path: "/topics/performance/code-splitting" },
         { title: "Edge Rendering", path: "/topics/performance/edge-rendering" },
+        { title: "Lazy Loading", path: "/topics/performance/lazy-loading" },
         {
           title: "Prefetching & Preloading",
           path: "/topics/performance/prefetching-preloading",
+          subItems: [
+            {
+              title: "Prefetching",
+              path: "/topics/performance/prefetching-preloading/prefetching",
+            },
+            {
+              title: "Preloading",
+              path: "/topics/performance/prefetching-preloading/preloading",
+            },
+          ],
+        },
+        {
+          title: "Three-shaking",
+          path: "/topics/performance/three-shaking",
         },
       ],
     },
     {
       section: "API & Data",
       items: [
-        { title: "REST API", path: "/topics/rest-api" },
-        { title: "GraphQL", path: "/topics/graphql" },
-        { title: "Error Handling", path: "/topics/error-handling" },
-        { title: "CORS & Security", path: "/topics/cors-security" },
+        {
+          title: "API & Data",
+          path: "/topics/api-and-data",
+        },
+        {
+          title: "Abort Controller",
+          path: "/topics/api-and-data/abort-controller",
+        },
+        { title: "Axios", path: "/topics/api-and-data/axios" },
+        { title: "cors", path: "/topics/api-and-data/cors" },
+        {
+          title: "Error Handling",
+          path: "/topics/api-and-data/error-handling",
+        },
+        { title: "Fetch API", path: "/topics/api-and-data/fetch-api" },
+        { title: "GraphQL", path: "/topics/api-and-data/graphql" },
+        { title: "Rate Limiting", path: "/topics/api-and-data/rate-limiting" },
+        { title: "REST API", path: "/topics/api-and-data/rest-api" },
       ],
     },
     {
       section: "Testing",
       items: [
-        { title: "Jest", path: "/topics/jest" },
-        { title: "React Testing Library", path: "/topics/rtl" },
-        { title: "E2E Testing", path: "/topics/e2e-testing" },
-        { title: "Mocking", path: "/topics/mocking" },
+        {
+          title: "Testing",
+          path: "/topics/testing",
+        },
+        { title: "E2E Testing", path: "/topics/testing/e2e-testing" },
+        { title: "Jest", path: "/topics/testing/jest" },
+        { title: "Mocking", path: "/topics/testing/mocking" },
+        { title: "React Testing Library", path: "/topics/testing/rtl" },
       ],
     },
     {
       section: "Diverse",
       items: [
+        {
+          title: "Diverse",
+          path: "/topics/diverse",
+        },
         { title: "Environment Variables", path: "/topics/env-vars" },
         { title: "SEO", path: "/topics/seo" },
         { title: "Internationalization", path: "/topics/i18n" },
@@ -440,7 +536,7 @@ const Navigation = () => {
             href="/"
             className="text-xl font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
           >
-            Next.js Exam Prep
+            Exam Prep
           </Link>
           <ThemeToggle />
         </div>

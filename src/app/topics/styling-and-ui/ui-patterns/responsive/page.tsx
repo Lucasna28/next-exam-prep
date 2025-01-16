@@ -1,135 +1,137 @@
 import CodeBlock from "@/components/CodeBlock";
 
-export default function CSSModulesScopingPage() {
+export default function ResponsiveLayoutPage() {
   return (
     <div className="prose lg:prose-xs">
-      <div className="mb-8 p-6 bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-950 dark:to-rose-950 rounded-lg border border-pink-100 dark:border-pink-900">
-        <h1 className="text-lg mb-2">CSS Modules: Lokal Scoping</h1>
+      <div className="mb-8 p-6 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950 rounded-lg border border-blue-100 dark:border-blue-900">
+        <h1 className="text-lg mb-2">Responsive Layout Patterns</h1>
         <p className="text-xs text-gray-600 dark:text-gray-400">
-          Lær hvordan CSS Modules løser navnekonflikter gennem automatisk lokal
-          scoping af class names.
+          Lær om de mest almindelige responsive design mønstre og hvordan du
+          implementerer dem.
         </p>
       </div>
 
       <div className="space-y-8">
         <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-800">
-          <h2 className="text-base font-semibold mb-4">Basis Opsætning</h2>
+          <h2 className="text-base font-semibold mb-4">Mobile-First Tilgang</h2>
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-6">
-            CSS Modules er indbygget i Next.js. Opret en fil med .module.css
-            endelsen:
+            Start med mobil layout og udvid gradvist til større skærme:
           </p>
 
           <div className="mb-6">
             <CodeBlock
-              code={`// Button.module.css
-.button {
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  background-color: #3b82f6;
-  color: white;
+              code={`.container {
+  width: 100%;
+  padding: 1rem;
+  
+  @media (min-width: 640px) {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 768px) {
+    max-width: 768px;
+  }
+  
+  @media (min-width: 1024px) {
+    max-width: 1024px;
+  }
 }
 
-.primary {
-  background-color: #3b82f6;
-}
-
-.secondary {
-  background-color: #6b7280;
-}`}
-              language="css"
-            />
-          </div>
-
-          <div className="mb-6">
-            <CodeBlock
-              code={`// Button.tsx
-import styles from './Button.module.css';
-
-export function Button({ variant = 'primary', children }) {
-  return (
-    <button 
-      className={styles.button + ' ' + styles[variant]}
-    >
-      {children}
-    </button>
-  );
-}`}
-              language="tsx"
-            />
-          </div>
-        </div>
-
-        <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-800">
-          <h2 className="text-base font-semibold mb-4">Hvordan Det Virker</h2>
-          <p className="text-xs text-gray-600 dark:text-gray-400 mb-6">
-            CSS Modules genererer unikke class names ved build time:
-          </p>
-
-          <div className="mb-6">
-            <CodeBlock
-              code={`// Det du skriver
-.button { ... }
-
-// Det der genereres
-.Button_button__xK_82 { ... }
-
-// I din HTML
-<button class="Button_button__xK_82 Button_primary__dR_4f">
-  Klik Her
-</button>`}
-              language="css"
-            />
-          </div>
-        </div>
-
-        <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-800">
-          <h2 className="text-base font-semibold mb-4">Avanceret Brug</h2>
-          <p className="text-xs text-gray-600 dark:text-gray-400 mb-6">
-            Brug af globale classes og kombinering af styles:
-          </p>
-
-          <div className="mb-6">
-            <CodeBlock
-              code={`// Card.module.css
-/* Global class */
-:global(.card-grid) {
+.card-grid {
   display: grid;
   gap: 1rem;
-}
-
-/* Lokal class med global modifier */
-.card:global(.highlighted) {
-  border-color: #3b82f6;
-}
-
-/* Compose flere classes */
-.cardHeader {
-  composes: flexBetween from global;
-  padding: 1rem;
+  grid-template-columns: 1fr;  // Mobile: en kolonne
+  
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);  // Tablet: to kolonner
+  }
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);  // Desktop: tre kolonner
+  }
 }`}
               language="css"
             />
           </div>
+        </div>
+
+        <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-800">
+          <h2 className="text-base font-semibold mb-4">
+            Responsive Navigation
+          </h2>
+          <p className="text-xs text-gray-600 dark:text-gray-400 mb-6">
+            Almindelige mønstre for responsiv navigation:
+          </p>
 
           <div className="mb-6">
             <CodeBlock
-              code={`// Card.tsx
-import styles from './Card.module.css';
-import clsx from 'clsx';
-
-export function Card({ highlighted }) {
-  return (
-    <div className={clsx(
-      styles.card,
-      highlighted && 'highlighted'
-    )}>
-      <div className={styles.cardHeader}>
-        {/* Header indhold */}
-      </div>
-    </div>
-  );
+              code={`.nav {
+  // Mobile: Burger menu
+  @media (max-width: 767px) {
+    .nav__menu {
+      display: none;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: white;
+      
+      &.is-open {
+        display: block;
+      }
+    }
+    
+    .nav__burger {
+      display: block;
+    }
+  }
+  
+  // Desktop: Horisontal menu
+  @media (min-width: 768px) {
+    .nav__menu {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    .nav__burger {
+      display: none;
+    }
+  }
 }`}
-              language="tsx"
+              language="css"
+            />
+          </div>
+        </div>
+
+        <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-800">
+          <h2 className="text-base font-semibold mb-4">Responsive Typografi</h2>
+          <p className="text-xs text-gray-600 dark:text-gray-400 mb-6">
+            Skalér tekst baseret på skærmstørrelse:
+          </p>
+
+          <div className="mb-6">
+            <CodeBlock
+              code={`:root {
+  // Base font size
+  font-size: 16px;
+  
+  @media (min-width: 640px) {
+    font-size: calc(16px + 0.5vw);
+  }
+}
+
+// Fluid typography
+.heading {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  line-height: 1.2;
+}
+
+.body-text {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.5;
+}`}
+              language="css"
             />
           </div>
         </div>
@@ -153,10 +155,12 @@ export function Card({ highlighted }) {
               />
             </svg>
             <div>
-              <strong className="block text-xs mb-1">Beskrivende Navne</strong>
+              <strong className="block text-xs mb-1">
+                Test på Rigtige Enheder
+              </strong>
               <p className="text-xs text-gray-600 dark:text-gray-400">
-                Brug semantiske og beskrivende class names der reflekterer
-                komponentens formål.
+                Brug ikke kun browserens responsive mode - test på faktiske
+                enheder.
               </p>
             </div>
           </div>
@@ -176,10 +180,11 @@ export function Card({ highlighted }) {
               />
             </svg>
             <div>
-              <strong className="block text-xs mb-1">Modularitet</strong>
+              <strong className="block text-xs mb-1">
+                Brug Relative Enheder
+              </strong>
               <p className="text-xs text-gray-600 dark:text-gray-400">
-                Hold CSS tæt koblet til komponenten og undgå at dele styles på
-                tværs af komponenter.
+                Foretræk rem, em, og % over faste pixel værdier.
               </p>
             </div>
           </div>
@@ -199,10 +204,11 @@ export function Card({ highlighted }) {
               />
             </svg>
             <div>
-              <strong className="block text-xs mb-1">Undgå Global Scope</strong>
+              <strong className="block text-xs mb-1">
+                Overvej Performance
+              </strong>
               <p className="text-xs text-gray-600 dark:text-gray-400">
-                Brug kun :global() når det er absolut nødvendigt, og dokumenter
-                hvorfor.
+                Optimer billeder og assets for forskellige skærmstørrelser.
               </p>
             </div>
           </div>

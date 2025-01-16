@@ -1,40 +1,106 @@
 import CodeBlock from "@/components/CodeBlock";
 
-export default function CSSModulesScopingPage() {
+export default function CSSModulesCompositionPage() {
   return (
     <div className="prose lg:prose-xs">
       <div className="mb-8 p-6 bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-950 dark:to-rose-950 rounded-lg border border-pink-100 dark:border-pink-900">
-        <h1 className="text-lg mb-2">CSS Modules: Lokal Scoping</h1>
+        <h1 className="text-lg mb-2">CSS Modules: Composition</h1>
         <p className="text-xs text-gray-600 dark:text-gray-400">
-          Lær hvordan CSS Modules løser navnekonflikter gennem automatisk lokal
-          scoping af class names.
+          Lær hvordan du kan genbruge og sammensætte styles med CSS Modules
+          composition feature.
         </p>
       </div>
 
       <div className="space-y-8">
         <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-800">
-          <h2 className="text-base font-semibold mb-4">Basis Opsætning</h2>
+          <h2 className="text-base font-semibold mb-4">Basis Composition</h2>
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-6">
-            CSS Modules er indbygget i Next.js. Opret en fil med .module.css
-            endelsen:
+            Brug composes til at genbruge styles fra andre classes:
           </p>
 
           <div className="mb-6">
             <CodeBlock
+              code={`// shared.module.css
+.flex {
+  display: flex;
+}
+
+.flexCenter {
+  composes: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexBetween {
+  composes: flex;
+  justify-content: space-between;
+  align-items: center;
+}`}
+              language="css"
+            />
+          </div>
+
+          <div className="mb-6">
+            <CodeBlock
+              code={`// Card.module.css
+.header {
+  composes: flexBetween from './shared.module.css';
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.content {
+  composes: flexCenter from './shared.module.css';
+  padding: 2rem;
+}`}
+              language="css"
+            />
+          </div>
+        </div>
+
+        <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-800">
+          <h2 className="text-base font-semibold mb-4">Multiple Composition</h2>
+          <p className="text-xs text-gray-600 dark:text-gray-400 mb-6">
+            Du kan compose flere classes og kombinere med lokale styles:
+          </p>
+
+          <div className="mb-6">
+            <CodeBlock
+              code={`// utils.module.css
+.rounded {
+  border-radius: 0.375rem;
+}
+
+.shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.transition {
+  transition: all 0.2s ease-in-out;
+}`}
+              language="css"
+            />
+          </div>
+
+          <div className="mb-6">
+            <CodeBlock
               code={`// Button.module.css
-.button {
+.base {
+  composes: rounded shadow transition from './utils.module.css';
   padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
+  font-weight: 500;
+}
+
+.primary {
+  composes: base;
   background-color: #3b82f6;
   color: white;
 }
 
-.primary {
-  background-color: #3b82f6;
-}
-
 .secondary {
-  background-color: #6b7280;
+  composes: base;
+  background-color: #e5e7eb;
+  color: #1f2937;
 }`}
               language="css"
             />
@@ -47,9 +113,7 @@ import styles from './Button.module.css';
 
 export function Button({ variant = 'primary', children }) {
   return (
-    <button 
-      className={styles.button + ' ' + styles[variant]}
-    >
+    <button className={styles[variant]}>
       {children}
     </button>
   );
@@ -60,83 +124,43 @@ export function Button({ variant = 'primary', children }) {
         </div>
 
         <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-800">
-          <h2 className="text-base font-semibold mb-4">Hvordan Det Virker</h2>
+          <h2 className="text-base font-semibold mb-4">Global Composition</h2>
           <p className="text-xs text-gray-600 dark:text-gray-400 mb-6">
-            CSS Modules genererer unikke class names ved build time:
+            Du kan også compose fra globale classes:
           </p>
 
           <div className="mb-6">
             <CodeBlock
-              code={`// Det du skriver
-.button { ... }
-
-// Det der genereres
-.Button_button__xK_82 { ... }
-
-// I din HTML
-<button class="Button_button__xK_82 Button_primary__dR_4f">
-  Klik Her
-</button>`}
-              language="css"
-            />
-          </div>
-        </div>
-
-        <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-800">
-          <h2 className="text-base font-semibold mb-4">Avanceret Brug</h2>
-          <p className="text-xs text-gray-600 dark:text-gray-400 mb-6">
-            Brug af globale classes og kombinering af styles:
-          </p>
-
-          <div className="mb-6">
-            <CodeBlock
-              code={`// Card.module.css
-/* Global class */
-:global(.card-grid) {
-  display: grid;
-  gap: 1rem;
+              code={`/* globals.css */
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
-/* Lokal class med global modifier */
-.card:global(.highlighted) {
-  border-color: #3b82f6;
+.font-bold {
+  font-weight: 700;
 }
 
-/* Compose flere classes */
-.cardHeader {
-  composes: flexBetween from global;
-  padding: 1rem;
+/* Heading.module.css */
+.title {
+  composes: text-lg font-bold from global;
+  color: #1f2937;
+}
+
+.subtitle {
+  composes: text-lg from global;
+  color: #6b7280;
 }`}
               language="css"
-            />
-          </div>
-
-          <div className="mb-6">
-            <CodeBlock
-              code={`// Card.tsx
-import styles from './Card.module.css';
-import clsx from 'clsx';
-
-export function Card({ highlighted }) {
-  return (
-    <div className={clsx(
-      styles.card,
-      highlighted && 'highlighted'
-    )}>
-      <div className={styles.cardHeader}>
-        {/* Header indhold */}
-      </div>
-    </div>
-  );
-}`}
-              language="tsx"
             />
           </div>
         </div>
       </div>
 
       <div className="mt-8 p-6 rounded-lg bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900">
-        <h3 className="text-base font-semibold mb-3">Best Practices</h3>
+        <h3 className="text-base font-semibold mb-3">
+          Composition Best Practices
+        </h3>
         <div className="space-y-4">
           <div className="flex items-start gap-3">
             <svg
@@ -153,10 +177,10 @@ export function Card({ highlighted }) {
               />
             </svg>
             <div>
-              <strong className="block text-xs mb-1">Beskrivende Navne</strong>
+              <strong className="block text-xs mb-1">Hold Det Simpelt</strong>
               <p className="text-xs text-gray-600 dark:text-gray-400">
-                Brug semantiske og beskrivende class names der reflekterer
-                komponentens formål.
+                Undgå for mange niveauer af composition da det kan gøre koden
+                svær at følge.
               </p>
             </div>
           </div>
@@ -176,10 +200,12 @@ export function Card({ highlighted }) {
               />
             </svg>
             <div>
-              <strong className="block text-xs mb-1">Modularitet</strong>
+              <strong className="block text-xs mb-1">
+                Organisér Utility Classes
+              </strong>
               <p className="text-xs text-gray-600 dark:text-gray-400">
-                Hold CSS tæt koblet til komponenten og undgå at dele styles på
-                tværs af komponenter.
+                Saml genbrugelige utility classes i dedikerede moduler for bedre
+                vedligeholdelse.
               </p>
             </div>
           </div>
@@ -199,10 +225,12 @@ export function Card({ highlighted }) {
               />
             </svg>
             <div>
-              <strong className="block text-xs mb-1">Undgå Global Scope</strong>
+              <strong className="block text-xs mb-1">
+                Dokumentér Global Composition
+              </strong>
               <p className="text-xs text-gray-600 dark:text-gray-400">
-                Brug kun :global() når det er absolut nødvendigt, og dokumenter
-                hvorfor.
+                Når du composer fra globale styles, sørg for at dokumentere
+                afhængighederne.
               </p>
             </div>
           </div>
