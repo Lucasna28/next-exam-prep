@@ -64,9 +64,9 @@ export default rateLimit;`}
           af anmodninger kan rate limiting forhindre overbelastning af serveren.
         </li>
         <li>
-          <strong>Forbedret sikkerhed:</strong> Det beskytter API'er mod misbrug
-          ved at sikre, at en enkelt bruger eller klient ikke kan overvælde
-          systemet.
+          <strong>Forbedret sikkerhed:</strong> Det beskytter API&apos;er mod
+          misbrug ved at sikre, at en enkelt bruger eller klient ikke kan
+          overvælde systemet.
         </li>
         <li>
           <strong>Effektiv ressourcehåndtering:</strong> Rate limiting hjælper

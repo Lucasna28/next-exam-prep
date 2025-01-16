@@ -55,7 +55,7 @@ export default function PostsPage({ posts }) {
       <ul className="text-xs text-gray-600 dark:text-gray-400">
         <li>
           <strong>Automatisk JSON parsing:</strong> Axios håndterer automatisk
-          JSON-data, hvilket gør det lettere at arbejde med API'er, der
+          JSON-data, hvilket gør det lettere at arbejde med API&apos;er, der
           returnerer JSON.
         </li>
         <li>

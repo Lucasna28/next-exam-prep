@@ -16,7 +16,7 @@ export default function APIAndDataPage() {
           <h2 className="text-base font-semibold mb-4">Data Integration</h2>
           <p className="text-sm text-gray-600 dark:text-gray-400">
             Moderne webapplikationer kræver effektiv datahåndtering og
-            integration med forskellige API'er. Det er vigtigt at forstå
+            integration med forskellige API&apos;er. Det er vigtigt at forstå
             forskellige metoder og best practices for at arbejde med eksterne
             datakilder.
           </p>

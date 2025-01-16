@@ -18,7 +18,7 @@ export default function ReactPage() {
           <p className="text-sm text-gray-600 dark:text-gray-400">
             React er et JavaScript bibliotek udviklet af Facebook til at bygge
             brugergrænseflader. Det er baseret på komponenter og gør det nemt at
-            bygge interaktive UI'er der automatisk opdaterer sig når data
+            bygge interaktive UI&apos;er der automatisk opdaterer sig når data
             ændres.
           </p>
 

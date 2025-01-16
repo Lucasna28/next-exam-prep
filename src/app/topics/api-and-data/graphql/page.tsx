@@ -77,7 +77,7 @@ export default function UsersPage({ users }) {
         </li>
         <li>
           <strong>Single endpoint:</strong> Alle forespørgsler går til ét
-          endpoint, hvilket gør det lettere at arbejde med API'et.
+          endpoint, hvilket gør det lettere at arbejde med API&apos;et.
         </li>
         <li>
           <strong>Støtte til real-time data:</strong> Med GraphQL kan du også

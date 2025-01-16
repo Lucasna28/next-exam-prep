@@ -64,8 +64,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
           anmodninger fra domæner, der ikke er tilladt.
         </li>
         <li>
-          <strong>Adgang til eksterne API'er:</strong> Gør det muligt for din
-          frontend at få adgang til ressourcer på en anden server eller domæne.
+          <strong>Adgang til eksterne API&apos;er:</strong> Gør det muligt for
+          din frontend at få adgang til ressourcer på en anden server eller
+          domæne.
         </li>
         <li>
           <strong>Kontrol:</strong> Servere har kontrol over, hvilke domæner de

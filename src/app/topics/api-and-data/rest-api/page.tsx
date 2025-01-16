@@ -14,7 +14,7 @@ export default function RestApiPage() {
       <p className="text-xs">
         I et REST API hentes data ved at sende HTTP-anmodninger til specifikke
         endpoints. Hver anmodning kan indeholde parametre, som definerer, hvilke
-        data der skal returneres. REST API'er bruger ofte JSON som
+        data der skal returneres. REST API&apos;er bruger ofte JSON som
         standardformat til at sende data.
       </p>
 
@@ -53,11 +53,11 @@ export default function UsersPage() {
       <h2 className="text-base">Fordele ved REST API</h2>
       <ul className="text-xs">
         <li>
-          <strong>Enkelhed:</strong> REST API'er er lette at forstå og
+          <strong>Enkelhed:</strong> REST API&apos;er er lette at forstå og
           implementere, hvilket gør dem til et godt valg til webapplikationer.
         </li>
         <li>
-          <strong>Skalérbarhed:</strong> REST API'er er skalerbare og kan
+          <strong>Skalérbarhed:</strong> REST API&apos;er er skalerbare og kan
           håndtere mange samtidige anmodninger effektivt.
         </li>
         <li>
