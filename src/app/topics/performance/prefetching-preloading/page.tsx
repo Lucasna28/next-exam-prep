@@ -1,115 +1,97 @@
-import Link from "next/link";
+import CodeBlock from "@/components/CodeBlock";
 
 export default function PrefetchingPreloadingPage() {
   return (
     <div className="prose lg:prose-xs">
-      <div className="mb-8 p-6 bg-gradient-to-br from-purple-50 to-fuchsia-50 dark:from-purple-950 dark:to-fuchsia-950 rounded-lg border border-purple-100 dark:border-purple-900">
-        <h1 className="text-lg mb-2">Prefetching & Preloading</h1>
-        <p className="text-xs text-gray-600 dark:text-gray-400">
-          Lær om forskellen mellem prefetching og preloading, og hvordan du kan
-          bruge disse teknikker til at optimere din applikations ydeevne.
-        </p>
-      </div>
+      <h1 className="text-lg">Prefetching og Preloading</h1>
+      <p className="text-xs">
+        Prefetching og preloading er teknikker, der anvendes til at forudindlæse
+        ressourcer som scripts, billeder og data, før de faktisk bliver
+        nødvendige. Dette kan forbedre brugeroplevelsen ved at reducere
+        ventetiden for brugeren, når de interagerer med applikationen.
+      </p>
 
-      <div className="space-y-8">
-        <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-800">
-          <h2 className="text-base font-semibold mb-4">Sammenligning</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <h3 className="text-sm font-medium">Prefetching</h3>
-              <ul className="list-disc pl-4 text-xs text-gray-600 dark:text-gray-400">
-                <li>Henter data eller ressourcer på forhånd</li>
-                <li>Fokuserer på fremtidige navigationer</li>
-                <li>Bruges ofte med Next.js router</li>
-                <li>Kan reducere ventetid ved navigation</li>
-              </ul>
-            </div>
-            <div className="space-y-2">
-              <h3 className="text-sm font-medium">Preloading</h3>
-              <ul className="list-disc pl-4 text-xs text-gray-600 dark:text-gray-400">
-                <li>Indlæser kritiske ressourcer tidligt</li>
-                <li>Fokuserer på nuværende side</li>
-                <li>Bruges med HTML link tags</li>
-                <li>Forbedrer initial indlæsningstid</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+      <h2 className="text-base">Hvad er Prefetching?</h2>
+      <p className="text-xs">
+        Prefetching refererer til indlæsning af ressourcer, som brugeren
+        muligvis får brug for i fremtiden, før de rent faktisk anmodes om dem.
+        Dette kan inkludere scripts, billeder eller data, der er nødvendige for
+        at fortsætte brugens interaktion med appen. Prefetching forhindrer
+        forsinkelse, når brugeren navigerer til en ny sektion, og hjælper med at
+        sikre, at indholdet er hurtigt tilgængeligt.
+      </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Link
-            href="/topics/performance/prefetching-preloading/prefetching"
-            className="block p-6 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-blue-500 transition-colors"
-          >
-            <h2 className="text-base font-semibold mb-2">Prefetching</h2>
-            <p className="text-xs text-gray-600 dark:text-gray-400 mb-4">
-              Lær hvordan du kan forbedre navigationsoplevelsen ved at
-              forudindlæse data og komponenter.
-            </p>
-            <div className="text-sm text-blue-500">Læs mere →</div>
-          </Link>
+      <h2 className="text-base">Hvad er Preloading?</h2>
+      <p className="text-xs">
+        Preloading er en teknik, hvor specifikke ressourcer (som scripts,
+        stilarter eller billeder) indlæses så hurtigt som muligt, ofte før de
+        bliver nødvendige for at sikre, at de er klar til brug. Forskellen
+        mellem preloading og prefetching er, at preloading typisk bruges til
+        ressourcer, der straks skal bruges, mens prefetching er mere rettet mod
+        ressourcer, der er nødvendige på et senere tidspunkt.
+      </p>
 
-          <Link
-            href="/topics/performance/prefetching-preloading/preloading"
-            className="block p-6 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-blue-500 transition-colors"
-          >
-            <h2 className="text-base font-semibold mb-2">Preloading</h2>
-            <p className="text-xs text-gray-600 dark:text-gray-400 mb-4">
-              Forstå hvordan du kan optimere indlæsningen af kritiske ressourcer
-              på din side.
-            </p>
-            <div className="text-sm text-blue-500">Læs mere →</div>
-          </Link>
-        </div>
+      <h2 className="text-base">
+        Eksempel på Prefetching og Preloading i Next.js
+      </h2>
+      <CodeBlock
+        code={`// Prefetching example using Link prefetch attribute in Next.js
+import Link from 'next/link';
 
-        <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-800">
-          <h2 className="text-base font-semibold mb-4">Hvornår bruges hvad?</h2>
-          <div className="space-y-4">
-            <div>
-              <h3 className="text-sm font-medium mb-2">
-                Brug Prefetching når:
-              </h3>
-              <ul className="list-disc pl-4 text-xs text-gray-600 dark:text-gray-400">
-                <li>Du vil optimere navigation mellem sider</li>
-                <li>Du kan forudsige brugerens næste handling</li>
-                <li>Du har ressourcer til at hente ekstra data</li>
-                <li>Du vil forbedre perceived performance</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm font-medium mb-2">Brug Preloading når:</h3>
-              <ul className="list-disc pl-4 text-xs text-gray-600 dark:text-gray-400">
-                <li>Du har kritiske ressourcer der skal indlæses hurtigt</li>
-                <li>Du vil optimere First Contentful Paint (FCP)</li>
-                <li>Du har fonts eller stylesheets der er vigtige</li>
-                <li>Du vil prioritere specifikke ressourcer</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+export default function MyComponent() {
+  return (
+    <div>
+      <Link href="/about" prefetch={true}>
+        Go to About Page
+      </Link>
+    </div>
+  );
+}
 
-        <div className="mt-8 p-6 rounded-lg bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900">
-          <h3 className="text-base font-semibold mb-3">Best Practices</h3>
-          <ul className="space-y-3 text-xs text-gray-600 dark:text-gray-400">
-            <li className="flex items-start gap-2">
-              <span className="text-blue-500">•</span>
-              Brug ikke prefetching på data der ændrer sig ofte
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-blue-500">•</span>
-              Preload kun de mest kritiske ressourcer
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-blue-500">•</span>
-              Overvej brugerens databegrænsninger
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-blue-500">•</span>
-              Monitor effekten på serverbelastning
-            </li>
-          </ul>
-        </div>
-      </div>
+// Preloading example using <link> in <head> for specific resources
+export default function MyComponent() {
+  return (
+    <>
+      <head>
+        <link rel="preload" href="/styles/main.css" as="style" />
+        <link rel="preload" href="/scripts/main.js" as="script" />
+      </head>
+      <div>Content of the page</div>
+    </>
+  );
+}`}
+        language="javascript"
+      />
+
+      <h2 className="text-base">Fordele ved Prefetching og Preloading</h2>
+      <ul className="text-xs">
+        <li>
+          <strong>Hurtigere navigation:</strong> Ved at indlæse nødvendige
+          ressourcer på forhånd kan appen reagere hurtigere, når brugeren
+          navigerer mellem sider.
+        </li>
+        <li>
+          <strong>Reduceret ventetid:</strong> Brugeren oplever færre
+          forsinkelser, da de nødvendige ressourcer allerede er indlæst, når de
+          interagerer med applikationen.
+        </li>
+        <li>
+          <strong>Forbedret brugeroplevelse:</strong> Forudindlæsning af
+          ressourcer kan gøre applikationen mere responsiv og give et mere
+          flydende brugerflow.
+        </li>
+      </ul>
+
+      <h2 className="text-base">Next.js og Prefetching/Preloading</h2>
+      <p className="text-xs">
+        Next.js understøtter både prefetching og preloading. Med Next.js kan du
+        bruge <code>Link</code>-komponenten med <code>prefetch</code>
+        -attributten for at aktivere prefetching af sider, som brugeren måske
+        besøger. Desuden kan du bruge{" "}
+        <code>&lt;link rel=&quot;preload&quot;&gt;</code> i{" "}
+        <code>&lt;head&gt;</code> for at forudindlæse vigtige ressourcer og
+        optimere appens ydeevne.
+      </p>
     </div>
   );
 }

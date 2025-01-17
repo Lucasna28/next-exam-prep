@@ -398,42 +398,6 @@ const Navigation = () => {
           ],
         },
         {
-          title: "MUI",
-          path: "/topics/styling-and-ui/mui",
-          subItems: [
-            {
-              title: "Components",
-              path: "/topics/styling-and-ui/mui/components ",
-            },
-            {
-              title: "Theming",
-              path: "/topics/styling-and-ui/mui/theming",
-            },
-          ],
-        },
-        {
-          title: "Shadcn",
-          path: "/topics/styling-and-ui/shadcn",
-          subItems: [
-            {
-              title: "Basics",
-              path: "/topics/styling-and-ui/shadcn/basics",
-            },
-            {
-              title: "Komponenter",
-              path: "/topics/styling-and-ui/shadcn/components",
-            },
-            {
-              title: "Forms & Validation",
-              path: "/topics/styling-and-ui/shadcn/forms",
-            },
-            {
-              title: "Theming",
-              path: "/topics/styling-and-ui/shadcn/theming",
-            },
-          ],
-        },
-        {
           title: "Animationer",
           path: "/topics/styling-and-ui/animations",
           subItems: [
@@ -472,7 +436,7 @@ const Navigation = () => {
         },
         {
           title: "Bundled Analyser",
-          path: "/topics/performance/bundle-analyser",
+          path: "/topics/performance/bundled-analyser",
         },
         { title: "Caching", path: "/topics/performance/caching" },
         { title: "Code Splitting", path: "/topics/performance/code-splitting" },
@@ -575,14 +539,43 @@ const Navigation = () => {
           <ThemeToggle />
         </div>
 
-        <div className="relative">
+        <div className="relative group">
           <input
             type="text"
-            placeholder="Søg efter emner..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-3 py-2 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
+            placeholder="Søg emner..."
+            className="w-full py-2 px-4 pr-10
+                     bg-slate-100/50 dark:bg-slate-800/50
+                     text-slate-900 dark:text-slate-100
+                     placeholder-slate-400 dark:placeholder-slate-500
+                     rounded-xl
+                     border border-slate-200/50 dark:border-slate-700/50
+                     backdrop-blur-sm
+                     focus:border-indigo-500 dark:focus:border-indigo-400
+                     focus:ring-2 focus:ring-indigo-500/20
+                     outline-none
+                     transition-all duration-200"
           />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery("")}
+              className="absolute right-10 top-1/2 -translate-y-1/2 
+                       text-slate-400 hover:text-slate-600
+                       dark:text-slate-500 dark:hover:text-slate-300
+                       transition-colors duration-200"
+            >
+              ✕
+            </button>
+          )}
+          <span
+            className="absolute right-3 top-1/2 -translate-y-1/2 
+                        text-slate-400 dark:text-slate-500
+                        group-hover:text-indigo-500 dark:group-hover:text-indigo-400
+                        transition-colors duration-200"
+          >
+            🔍
+          </span>
         </div>
       </div>
 

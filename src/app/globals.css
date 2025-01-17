@@ -50,65 +50,58 @@
 
   /* Skaler tekst til print */
   .prose {
-    font-size: 10pt !important; /* Mindre tekst for bedre udnyttelse af plads */
-    max-width: none !important;
-    color: black !important;
+    font-size: 10pt; /* Mindre tekst for bedre udnyttelse af plads */
   }
 
-  /* Skjul farver i print */
+  /* Skjul farver i print (for at undgå problemer med mørk tilstand) */
   * {
     background: none !important;
-    color: black !important;
-    text-shadow: none !important;
+    /* color: black !important; */
   }
 
   /* Sørg for at kodeblokke bliver læselige */
-  pre,
-  code {
+  pre {
     border: 1px solid #ddd !important;
     white-space: pre-wrap !important;
-    page-break-inside: avoid !important;
-    background-color: #f5f5f5 !important;
-    color: #333 !important;
-    font-size: 9pt !important;
+    page-break-inside: avoid;
   }
 
   /* Skab sektioner, der ikke deles mellem sider */
-  section,
-  article {
-    page-break-inside: avoid !important;
-    page-break-after: always !important;
+  .section {
+    page-break-after: always; /* Tvinger en ny side efter hver sektion */
   }
 
-  /* Forhindrer opdeling af store blokke */
+  /* Forhindrer opdeling af store blokke som lister */
   ul,
   ol,
   p,
-  h2,
-  table {
-    page-break-inside: avoid !important;
+  h2 {
+    page-break-inside: avoid;
   }
 
   /* Skift page-break på store overskrifter */
   h1,
   h2 {
-    page-break-before: always !important;
-    page-break-after: avoid !important;
-    margin-top: 1cm !important;
+    page-break-before: avoid; /* Tvinger en ny side før store overskrifter */
+  }
+  /* Skift page-break på store overskrifter */
+  h5 {
+    page-break-before: always; /* Tvinger en ny side før store overskrifter */
+  }
+  /* Forhindrer billeder i at blive delt */
+  img {
+    page-break-inside: avoid;
   }
 
-  /* Tilføj URL'er efter links */
-  a[href^="http"]:after {
-    content: " (" attr(href) ")" !important;
-    font-size: 90% !important;
+  /* Skru ned for marginerne for at få plads til alt på én side */
+  body {
+    margin: 0;
+    padding: 0;
   }
 
-  /* Tilføj sidenumre */
-  @page {
-    margin: 2cm !important;
-    @bottom-center {
-      content: "Side " counter(page) " af " counter(pages) !important;
-    }
+  /* Skru ned for indrykning på listepunkter */
+  li {
+    margin-left: 10px;
   }
 }
 
