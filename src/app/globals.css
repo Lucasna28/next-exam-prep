@@ -30,78 +30,112 @@
 }
 
 @media print {
-  /* Skjul navigation og andre UI elementer ved print */
+  /* Grundlæggende print setup */
+  @page {
+    margin: 2cm;
+  }
+
+  /* Skjul UI elementer */
   aside,
   button,
-  nav {
+  nav,
+  .print {
     display: none !important;
   }
 
-  /* Fjern margin fra main content */
+  /* Reset layout */
   main {
     padding: 0 !important;
     margin: 0 !important;
+    width: 100% !important;
   }
 
-  /* Reset padding fra layout */
   .pl-64 {
     padding-left: 0 !important;
   }
 
-  /* Skaler tekst til print */
-  .prose {
-    font-size: 10pt; /* Mindre tekst for bedre udnyttelse af plads */
+  /* Typografi og layout */
+  body {
+    font-size: 12pt;
+    line-height: 1.3;
+    background: none;
+    color: black;
   }
 
-  /* Skjul farver i print (for at undgå problemer med mørk tilstand) */
+  /* Optimér tekst til print */
+  .prose {
+    max-width: none !important;
+    font-size: 11pt;
+  }
+
+  .prose h1 {
+    font-size: 18pt;
+    margin-top: 2cm;
+    margin-bottom: 1cm;
+  }
+
+  .prose h2 {
+    font-size: 14pt;
+    margin-top: 1cm;
+    margin-bottom: 0.5cm;
+  }
+
+  .prose p,
+  .prose ul,
+  .prose ol {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Fjern farver og baggrunde */
   * {
     background: none !important;
-    /* color: black !important; */
+    color: black !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
   }
 
-  /* Sørg for at kodeblokke bliver læselige */
-  pre {
+  /* Håndter links */
+  a {
+    text-decoration: underline;
+  }
+
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 90%;
+  }
+
+  /* Kodeblokke */
+  pre,
+  code {
     border: 1px solid #ddd !important;
+    page-break-inside: avoid;
     white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    font-size: 10pt;
+    background-color: #f8f8f8 !important;
+    padding: 1em !important;
+  }
+
+  /* Sideskift kontrol */
+  h1,
+  h2,
+  h3 {
+    page-break-after: avoid;
     page-break-inside: avoid;
   }
 
-  /* Skab sektioner, der ikke deles mellem sider */
-  .section {
-    page-break-after: always; /* Tvinger en ny side efter hver sektion */
+  img,
+  table,
+  figure {
+    page-break-inside: avoid;
+    max-width: 100% !important;
   }
 
-  /* Forhindrer opdeling af store blokke som lister */
   ul,
   ol,
-  p,
-  h2 {
-    page-break-inside: avoid;
-  }
-
-  /* Skift page-break på store overskrifter */
-  h1,
-  h2 {
-    page-break-before: avoid; /* Tvinger en ny side før store overskrifter */
-  }
-  /* Skift page-break på store overskrifter */
-  h5 {
-    page-break-before: always; /* Tvinger en ny side før store overskrifter */
-  }
-  /* Forhindrer billeder i at blive delt */
-  img {
-    page-break-inside: avoid;
-  }
-
-  /* Skru ned for marginerne for at få plads til alt på én side */
-  body {
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Skru ned for indrykning på listepunkter */
-  li {
-    margin-left: 10px;
+  dl {
+    page-break-before: avoid;
   }
 }
 

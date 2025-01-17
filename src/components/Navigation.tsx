@@ -9,6 +9,31 @@ const Navigation = () => {
 
   const topics = [
     {
+      section: "UI Library",
+      items: [
+        {
+          title: "Oversigt",
+          path: "/ui-library",
+        },
+        {
+          title: "Button",
+          path: "/ui-library/components/button",
+        },
+        {
+          title: "Input",
+          path: "/ui-library/components/input",
+        },
+        {
+          title: "Card",
+          path: "/ui-library/components/card",
+        },
+        {
+          title: "Dropdown",
+          path: "/ui-library/components/dropdown",
+        },
+      ],
+    },
+    {
       section: "Toolbox ",
       items: [
         {
