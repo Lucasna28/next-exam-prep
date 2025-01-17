@@ -29,7 +29,7 @@ const Navigation = () => {
         },
         {
           title: "Dropdown",
-          path: "/ui-library/components/dropdown",
+          path: "/ui-library/components/skeleton",
         },
       ],
     },
