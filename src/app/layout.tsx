@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import PrintButton from "@/components/PrintButton";
 import Navigation from "@/components/Navigation";
 import { Analytics } from "@vercel/analytics/next";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +32,7 @@ export default function RootLayout({
               </section>
             </div>
             <PrintButton />
+            <ScrollToTop />
           </main>
         </ThemeProvider>
         <Analytics />
