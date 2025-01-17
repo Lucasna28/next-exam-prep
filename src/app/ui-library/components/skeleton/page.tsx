@@ -158,10 +158,11 @@ export default function Skeleton({
                 <tr>
                   <td className="px-4 py-3 text-sm font-medium">variant</td>
                   <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">
-                    'text' | 'circular' | 'rectangular'
+                    &apos;text&apos; | &apos;circular&apos; |
+                    &apos;rectangular&apos;
                   </td>
                   <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">
-                    'text'
+                    &apos;text&apos;
                   </td>
                   <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">
                     Bestemmer skeletonens type

@@ -1,13 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function ScrollProgress() {
   const [progress, setProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const [currentSection, setCurrentSection] = useState("");
   const pathname = usePathname();
 
   useEffect(() => {
@@ -19,39 +17,11 @@ export default function ScrollProgress() {
       const progress = (scrolled / documentHeight) * 100;
       setProgress(progress);
       setIsVisible(scrolled > 200);
-
-      // Find aktuel sektion baseret på scroll position
-      const sections = document.querySelectorAll("h1, h2");
-      for (const section of sections) {
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= 100) {
-          setCurrentSection(section.textContent || "");
-        }
-      }
     };
 
     window.addEventListener("scroll", calculateProgress);
     return () => window.removeEventListener("scroll", calculateProgress);
   }, []);
-
-  // Find parent og sibling sider
-  const getNavigationLinks = () => {
-    const pathParts = pathname.split("/");
-    const parentPath = pathParts.slice(0, -1).join("/");
-    const parentTitle = pathParts[pathParts.length - 2]?.replace(/-/g, " ");
-
-    return {
-      parent:
-        parentPath !== ""
-          ? {
-              path: parentPath,
-              title: parentTitle,
-            }
-          : null,
-    };
-  };
-
-  const { parent } = getNavigationLinks();
 
   return (
     <>
