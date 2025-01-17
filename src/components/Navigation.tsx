@@ -28,7 +28,7 @@ const Navigation = () => {
           path: "/ui-library/components/card",
         },
         {
-          title: "Dropdown",
+          title: "skeleton",
           path: "/ui-library/components/skeleton",
         },
       ],
