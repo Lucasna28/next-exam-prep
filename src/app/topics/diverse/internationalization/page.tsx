@@ -9,7 +9,6 @@ export default function I18nPage() {
   const [currentLocale, setCurrentLocale] = useState(locale);
 
   useEffect(() => {
-    // Sæt det aktuelle sprog, når komponenten bliver monteret
     setCurrentLocale(locale);
   }, [locale]);
 
@@ -20,6 +19,28 @@ export default function I18nPage() {
   return (
     <div className="prose lg:prose-xs">
       <h1 className="text-lg">Internationalization (i18n) i Next.js</h1>
+
+      {/* Sprog-vælger */}
+      <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+        <h3 className="text-sm font-medium mb-2">Vælg Sprog</h3>
+        <div className="flex items-center gap-4">
+          <p className="text-xs text-gray-600 dark:text-gray-400">
+            Nuværende sprog: {currentLocale}
+          </p>
+          <select
+            value={currentLocale}
+            onChange={(e) => handleChangeLanguage(e.target.value)}
+            className="text-xs rounded border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-2 py-1"
+          >
+            {locales?.map((lng) => (
+              <option key={lng} value={lng}>
+                {lng.toUpperCase()}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
       <p className="text-xs">
         Internationalization (i18n) gør det muligt for webapplikationer at
         understøtte flere sprog og regioner. I Next.js kan du nemt implementere
